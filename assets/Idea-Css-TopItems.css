@@ -1,0 +1,36 @@
+/* ====================================================
+1: TOP COLLECTION AREA
+==================================================== */
+.TopItems {
+  /* //border: 5px solid red; */
+  background: #fff;
+  width: 100%;
+  padding: 90px 20px 100px;
+  position: relative;
+}
+/*=== WayPoint�g�p�� FadeIn ===*/
+.TopItems.WayPoint-FadeIn {
+  opacity: 0;
+}
+.TopItems.WayPoint-FadeIn.Active {
+  animation: CommonFadeIn 1.4s;
+  animation-fill-mode: forwards;
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+@media only screen and (max-width: 1080px) {
+  .TopItems {
+    padding: 80px 15px 90px;
+  }
+  .TopItems.WayPoint-FadeIn.Active {
+    animation: CommonFadeIn 0.8s;
+    animation-fill-mode: forwards;
+  }
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+/********************** (SP 640px �ȉ�) ********************* */
+@media only screen and (max-width: 640px) {
+  .TopItems {
+    padding: 45px 15px 55px;
+  }
+}
+/********************** (SP 640px �ȉ�) ********************* */

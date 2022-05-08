@@ -1,0 +1,263 @@
+/*----------------------------------------------
+1: COMMON FOOTER BANNER
+---------------------------------------------- */
+.CommonFooterBanner {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+/*=== BG ===*/
+.CommonFooterBanner:after {
+  content: "";
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ececec;
+}
+/*=== WayPoint�g�p���w�iFadeIn ===*/
+.CommonFooterBanner.WayPoint-FadeIn:after {
+  opacity: 0;
+}
+.CommonFooterBanner.Active.WayPoint-FadeIn:after {
+  animation: CommonFadeIn 1.2s;
+  animation-fill-mode: forwards;
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+@media only screen and (max-width: 1080px) {
+  .CommonFooterBanner.Active.WayPoint-FadeIn:after {
+    animation: CommonFadeIn 0.8s;
+    animation-fill-mode: forwards;
+  }
+}
+/*=== Inner === */
+.CommonFooterBanner .Inner {
+  max-width: 960px;
+  padding: 40px 20px 15px;
+  /* //border: 1px solid blue; */
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  -webkit-display: flex;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  justify-content: center;
+  -webkit-justify-content: center;
+}
+/*=== Brand Img === */
+.CommonFooterBanner .Inner a {
+  display: block;
+  /* //border: 1px solid blue; */
+  position: relative;
+  height: 128px;
+  width: 128px;
+  margin: 0 22px 22px !important;
+}
+.CommonFooterBanner .Inner a img {
+  width: 100%;
+  height: auto;
+}
+.is-PC .CommonFooterBanner .Inner a:after {
+  content: "";
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.6);
+  opacity: 0;
+  transition: all 0.3s linear;
+}
+.is-PC .CommonFooterBanner .Inner a:hover:after {
+  opacity: 1;
+}
+
+/********************** (PC 1080px �ȉ�) ********************* */
+@media only screen and (max-width: 1080px) {
+  .CommonFooterBanner .Inner {
+    padding: 40px 15px 15px;
+  }
+  .CommonFooterBanner .Inner a {
+    margin: 0 15px 15px !important;
+    width: 100px;
+    height: 100px;
+  }
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+/********************** (SP 680px �ȉ�) ********************* */
+@media only screen and (max-width: 680px) {
+  .CommonFooterBanner .Inner {
+    padding: 50px 5px 35px;
+  }
+  .CommonFooterBanner .Inner a {
+    margin: 0 1.16822429vw 2.336448vw !important;
+    width: 16.35514vw;
+    height: 16.35514vw;
+  }
+}
+/********************** (PC 680px �ȉ�) ********************* */
+/*----------------------------------------------
+2: FOOTER
+---------------------------------------------- */
+#IdeaFooter {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  padding: 80px 0px 30px;
+  background: #fff;
+  text-align: center;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+}
+
+/*=== WayPoint�g�p���w�iFadeIn ===*/
+#IdeaFooter.WayPoint-FadeIn {
+  opacity: 0;
+}
+#IdeaFooter.WayPoint-FadeIn.Active {
+  animation: CommonFadeIn 1.4s;
+  animation-fill-mode: forwards;
+}
+/*=== Footer Logo === */
+#IdeaFooter .fLogo img {
+  width: 125px;
+  height: auto;
+  margin: 0 auto 20px;
+}
+/*=== Insta Icon === */
+#IdeaFooter .fInstaIcon img {
+  width: 20px;
+  height: auto;
+  margin: 0 auto 50px;
+}
+/*=== Footer Nav === */
+#IdeaFooter #FooterNav {
+  margin: 0 auto 30px;
+  display: flex;
+  -webkit-display: flex;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  justify-content: center;
+  -webkit-justify-content: center;
+}
+#IdeaFooter #FooterNav li a {
+  font-size: 12px;
+  margin: 0 30px 15px;
+  color: #000;
+  text-decoration: none;
+  letter-spacing: 0.05em !important;
+}
+#IdeaFooter #FooterNav li a:hover,
+#IdeaFooter .fCopyrights a:hover {
+  color: var(--Idea-hover-color);
+}
+/*=== Footer Copy === */
+#IdeaFooter .fCopyrights {
+  padding-top: 30px;
+  border-top: 1px solid #c5c5c5;
+  font-size: 12px;
+  color: #000;
+}
+#IdeaFooter .fCopyrights a {
+  color: #000;
+  text-decoration: none;
+}
+
+/********************** (PC 1080px �ȉ�) ********************* */
+@media only screen and (max-width: 1080px) {
+  #IdeaFooter #FooterNav li a {
+    margin: 0 15px 15px;
+  }
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+/********************** (SP 640px �ȉ�) ********************* */
+@media only screen and (max-width: 640px) {
+  #IdeaFooter {
+    padding: 40px 0px 40px;
+  }
+  /*=== Footer Logo === */
+  #IdeaFooter .fLogo img {
+    width: 90px;
+    margin: 0 auto 20px;
+  }
+  #IdeaFooter .fInstaIcon img {
+    margin: 0 auto 30px;
+  }
+  #IdeaFooter #FooterNav {
+    margin: 0 auto 25px;
+    padding: 0;
+    width: 100%;
+    /* //border: 1px solid red; */
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+  }
+  #IdeaFooter #FooterNav li {
+    width: 50%;
+  }
+  #IdeaFooter #FooterNav li a {
+    margin: 0;
+    padding: 15px 15px;
+    display: block;
+    /* //background: red; */
+  }
+  #IdeaFooter .fCopyrights {
+    padding-top: 40px;
+    font-size: 11px;
+  }
+}
+/********************** (/SP 640px �ȉ�) ********************* */
+/* --------------------------------------------------------------------------------------------
+-2 : PAGE TOP
+-------------------------------------------------------------------------------------------- */
+#PageTop {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  right: 25px;
+  bottom: 10px;
+  background: rgba(0, 0, 0, 0.9);
+  /* //opacity: 0.7; */
+  z-index: 1;
+  display: none;
+}
+#PageTop a {
+  width: 100%;
+  height: 100%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+#PageTop a img {
+  width: 30px;
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+@media only screen and (max-width: 1080px) {
+  #PageTop {
+    right: 15px;
+  }
+}
+/********************** (/PC 1080px �ȉ�) ********************* */
+/********************** (SP 797px �ȉ�) *********************/
+@media only screen and (max-width: 797px) {
+  #PageTop {
+    width: 40px;
+    height: 40px;
+    /* img{
+            width: 25px;
+        } */
+  }
+}
+/********************** (SP 797px �ȉ�) *********************/
+/********************** (SP 640px �ȉ�) ********************* */
+/* @media only screen and (max-width: 640px){
+    #PageTop{
+        //right: 2.336448vw;
+    }
+} */
+/********************** (/SP 640px �ȉ�) ********************* */

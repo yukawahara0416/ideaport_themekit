@@ -1,0 +1,87 @@
+{% comment %}
+    Renders a set of links for paginated results. Must be used within paginate tags.
+
+    Usage:
+    {% paginate results by 2 %}
+      {% render 'Idea-pagination', paginate: paginate, anchor: '#yourID' %}
+    {% endpaginate %}
+
+    Accepts:
+    - paginate: {Object}
+    - anchor: {String} (optional) This can be added so that on page reload it takes you to wherever you've placed your anchor tag.
+{% endcomment %}
+
+{%- style -%}
+  #gscollectionbottom{
+      max-width: 226px;
+      margin: 75px auto 0;
+      font-family: var(--Idea-Poppins)!important;
+  }
+  @media only screen and (max-width: 640px) {
+      margin: 35px auto 0;
+
+  }
+  #gscollectionbottom button#gsloadmore{
+      display: inline-flex;
+      max-width: none;
+      justify-content: center;
+      align-items: center;
+      border: 0;
+      border-radius: 0px!important;
+      padding: 1.2rem 5rem!important;
+      cursor: pointer;
+      font-size: 1.5rem;
+      letter-spacing: 0.12em!important;
+      text-decoration: none;
+      color: rgb(var(--color-button-text));
+      background-color: rgba(var(--color-button), var(--alpha-button-background));
+  }
+{%- endstyle -%}
+
+<link rel="stylesheet" href="{{ 'component-pagination.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-pagination.css' | asset_url | stylesheet_tag }}</noscript>
+
+{%- if paginate.parts.size > 0 -%}
+  <div class="pagination-wrapper">
+    <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}" style="display: none;">
+      <ul class="pagination__list list-unstyled" role="list">
+      {%- if paginate.previous -%}
+        <li>
+          <a href="{{ paginate.previous.url }}{{ anchor }}" class="pagination__item pagination__item--next pagination__item-arrow link motion-reduce" aria-label="{{ 'general.pagination.previous' | t }}">
+            {% render 'icon-caret' %}
+          </a>
+        </li>
+      {%- endif -%}
+
+      {%- for part in paginate.parts -%}
+        <li>
+          {%- if part.is_link -%}
+            <a href="{{ part.url }}{{ anchor }}" class="pagination__item link" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">{{ part.title }}</a>
+          {%- else -%}
+            {%- if part.title == paginate.current_page -%}
+              <span class="pagination__item pagination__item--current" aria-current="page" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">{{ part.title }}</span>
+            {%- else -%}
+              <span class="pagination__item">{{ part.title }}</span>
+            {%- endif -%}
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+
+      {%- if paginate.next -%}
+        <li>
+          <a href="{{ paginate.next.url }}{{ anchor }}" class="pagination__item pagination__item--prev pagination__item-arrow link motion-reduce" aria-label="{{ 'general.pagination.next' | t }}" >
+            {%- render 'icon-caret' -%}
+          </a>
+        </li>
+      {%- endif -%}
+      </ul>
+    </nav>
+
+    <div style="width: 100%; float: none;" id="gscollectionbottom">
+      <center>
+        <button id="gsloadmore" style="max-width: 250px; border: 1px solid; border-radius: 5px; padding-left: 20px; padding-right: 20px; padding-bottom: 3px; padding-top: 3px; margin-top: 20px;" type="button" onclick="loadMoreProducts();">READ MORE</button>
+        <img id="gsloaderimg" style="margin-top: 10px; display: none;" src="https://gravity-apps.com/shopify/media/loader.gif">
+      </center>
+    </div>
+  </div>
+{%- endif -%}

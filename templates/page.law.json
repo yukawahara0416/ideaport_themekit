@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "Idea-page-law",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

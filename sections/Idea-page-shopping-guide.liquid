@@ -1,0 +1,374 @@
+<!-- ADD CSS -->
+{{ 'Idea-Css-UnderPage.css' | asset_url | stylesheet_tag }}
+
+<h2 class="Idea-PageTitle">{{ page.title | escape }}</h2>
+
+<!-- Common Grey Area -->
+<div class="CommonGreyArea ShoppingNav">
+  <h3 class="ShoppingGuide mb30">よくある質問</h3>
+    <div class="Idea-Sort">
+      <ul>
+        <li><a href="#OrderArea" title="注文">注文</a></li>
+        <li><a href="#DeliveryArea" title="配達">配達</a></li>
+        <li><a href="#PaymentArea" title="お支払いについて">お支払いについて</a></li>
+        <li><a href="#ReturnsArea" title="返品交換">返品交換</a></li>
+      </ul>
+    </div>
+
+  <h3 class="ShoppingGuide mb30">ブランドについて</h3>
+    <div class="Idea-Sort">
+      <ul>
+        <li><a href="#IZIPIZI" title="IZIPIZI">IZIPIZI</a></li>
+        <li><a href="#VegieBag" title="VegieBag">VegieBag</a></li>
+        <li><a href="#ROSER" title="ROSER">ROSER</a></li>
+        <li><a href="#Wipop" title="Wipop">Wipop</a></li>
+        <li><a href="#Reszta" title="Reszta">Reszta</a></li>
+        <li><a href="#WAFUBAG" title="WAFUBAG">WAFUBAG</a></li>
+        <li><a href="#SSB" title="SSB">SSB</a></li>
+        <li><a href="#BACSAC" title="BACSAC">BACSAC</a></li>
+        <li><a href="#SUBU" title="SUBU">SUBU</a></li>
+      </ul>
+    </div>
+</div>
+
+<!-- ADD JS -->
+<script src="{{ 'Idea-Js-Accodion.js' | asset_url }}" defer="defer"></script>
+
+<h3 class="ShoppingGuide mb50">よくある質問</h3>
+  <h4 id="OrderArea" class="GuideTitle">注文</h4>
+  <div class="AnswerBox">
+    <div class="Idea-Accordion">
+      <div class="Accodion-Toggle">
+        <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">注文履歴の確認方法を教えてください注文履歴の確認方法を教えてください</span></div>
+        <div class="ToggleOpen"><span></span><span></span></div>
+      </div>
+      <div class="Accodion-Open">
+        マイページ内<a href="/account">「オンライン注文履歴」</a>よりご確認いただけます。
+      </div>
+    </div>
+    <div class="Idea-Accordion">
+      <div class="Accodion-Toggle">
+        <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">注文内容変更を教えてください</span></div>
+        <div class="ToggleOpen"><span></span><span></span></div>
+      </div>
+      <div class="Accodion-Open">
+        マイページ内<a href="/account">「オンライン注文履歴」</a>より変更可能です。ご注文が完了した後で、注文内容に間違いがあった場合など、注文完了から60分以内であれば変更が可能です。
+      </div>
+    </div>
+    <div class="Idea-Accordion">
+      <div class="Accodion-Toggle">
+        <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">注文キャンセルはできますか</span></div>
+        <div class="ToggleOpen"><span></span><span></span></div>
+      </div>
+      <div class="Accodion-Open">
+        マイページ内<a href="/account">「オンライン注文履歴」</a>よりご注文のキャンセルを行ってください。ご注文が完了した後で、注文内容に間違いがあった場合など、注文完了から60分以内であればキャンセルが可能です。
+      </div>
+    </div>
+  </div>
+
+  <h4 id="DeliveryArea" class="GuideTitle">配送</h4>
+  <div class="AnswerBox">
+    <div class="Idea-Accordion">
+      <div class="Accodion-Toggle">
+        <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">配送業者情報</span></div>
+        <div class="ToggleOpen"><span></span><span></span></div>
+      </div>
+      <div class="Accodion-Open">
+        ここに文章を入れてください。ここに文章を入れてください。
+      </div>
+    </div>
+    <div class="Idea-Accordion">
+      <div class="Accodion-Toggle">
+        <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">お届けまで</span></div>
+        <div class="ToggleOpen"><span></span><span></span></div>
+      </div>
+      <div class="Accodion-Open">
+        ここに文章を入れてください。ここに文章を入れてください。
+      </div>
+    </div>
+    <div class="Idea-Accordion">
+      <div class="Accodion-Toggle">
+        <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">送料</span></div>
+        <div class="ToggleOpen"><span></span><span></span></div>
+      </div>
+      <div class="Accodion-Open">
+        ここに文章を入れてください。ここに文章を入れてください。
+      </div>
+    </div>
+  </div>
+
+  <h4 id="PaymentArea" class="GuideTitle">お支払いについて</h4>
+    <div class="AnswerBox">
+      <div class="Idea-Accordion">
+        <div class="Accodion-Toggle">
+          <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">代引き</span></div>
+          <div class="ToggleOpen"><span></span><span></span></div>
+        </div>
+        <div class="Accodion-Open">
+          ここに文章を入れてください。ここに文章を入れてください。
+        </div>
+      </div>
+      <div class="Idea-Accordion">
+        <div class="Accodion-Toggle">
+          <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">クレジット</span></div>
+          <div class="ToggleOpen"><span></span><span></span></div>
+        </div>
+        <div class="Accodion-Open">
+          ここに文章を入れてください。ここに文章を入れてください。
+        </div>
+      </div>
+      <div class="Idea-Accordion">
+        <div class="Accodion-Toggle">
+          <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">電子マネー</span></div>
+          <div class="ToggleOpen"><span></span><span></span></div>
+        </div>
+        <div class="Accodion-Open">
+          ここに文章を入れてください。ここに文章を入れてください。
+        </div>
+      </div>
+    </div>
+
+  <h4 id="ReturnsArea" class="GuideTitle">返品交換</h4>
+  <div class="AnswerBox">
+    <div class="Idea-Accordion">
+      <div class="Accodion-Toggle">
+        <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">返品</span></div>
+        <div class="ToggleOpen"><span></span><span></span></div>
+      </div>
+      <div class="Accodion-Open">
+        ここに文章を入れてください。ここに文章を入れてください。
+      </div>
+    </div>
+    <div class="Idea-Accordion">
+      <div class="Accodion-Toggle">
+        <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">交換</span></div>
+        <div class="ToggleOpen"><span></span><span></span></div>
+      </div>
+      <div class="Accodion-Open">
+        ここに文章を入れてください。ここに文章を入れてください。
+      </div>
+    </div>
+    <div class="Idea-Accordion">
+      <div class="Accodion-Toggle">
+        <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">電子マネー</span></div>
+        <div class="ToggleOpen"><span></span><span></span></div>
+      </div>
+      <div class="Accodion-Open">
+        ここに文章を入れてください。ここに文章を入れてください。
+      </div>
+    </div>
+    <div class="Idea-Accordion">
+      <div class="Accodion-Toggle">
+        <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">返送</span></div>
+        <div class="ToggleOpen"><span></span><span></span></div>
+      </div>
+      <div class="Accodion-Open">
+        ここに文章を入れてください。ここに文章を入れてください。
+      </div>
+    </div>
+  </div>
+
+<h3 class="ShoppingGuide mb50">ブランドについて</h3>
+
+<h4 id="IZIPIZI" class="GuideTitle">IZIPIZI</h4>
+<div class="AnswerBox">
+  <div class="Idea-Accordion">
+    <div class="Accodion-Toggle">
+      <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">不良商品基準</span></div>
+      <div class="ToggleOpen"><span></span><span></span></div>
+    </div>
+    <div class="Accodion-Open">
+      ひび割れ。べたつき。
+    </div>
+  </div>
+  <div class="Idea-Accordion">
+    <div class="Accodion-Toggle">
+      <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">修理</span></div>
+      <div class="ToggleOpen"><span></span><span></span></div>
+    </div>
+    <div class="Accodion-Open">
+      輸入品のため、行っておりません。
+  </div>
+</div>
+</div>
+
+<h4 id="VegieBag" class="GuideTitle">VegieBag</h4>
+<div class="AnswerBox">
+  <div class="Idea-Accordion">
+    <div class="Accodion-Toggle">
+      <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">不良商品基準</span></div>
+      <div class="ToggleOpen"><span></span><span></span></div>
+    </div>
+    <div class="Accodion-Open">
+      縫製不良。汚れ。
+    </div>
+  </div>
+</div>
+
+<h4 id="ROSER" class="GuideTitle">ROSER</h4>
+<div class="AnswerBox">
+  <div class="Idea-Accordion">
+    <div class="Accodion-Toggle">
+      <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">不良商品基準</span></div>
+      <div class="ToggleOpen"><span></span><span></span></div>
+    </div>
+    <div class="Accodion-Open">
+      ここに文章が入ります。
+    </div>
+  </div>
+  <div class="Idea-Accordion">
+    <div class="Accodion-Toggle">
+      <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">修理</span></div>
+      <div class="ToggleOpen"><span></span><span></span></div>
+    </div>
+    <div class="Accodion-Open">
+      輸入品のため、行っておりません。
+    </div>
+  </div>
+</div>
+
+<h4 id="Wipop" class="GuideTitle">Wipop</h4>
+<div class="AnswerBox">
+  <div class="Idea-Accordion">
+    <div class="Accodion-Toggle">
+      <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">不良商品基準</span></div>
+      <div class="ToggleOpen"><span></span><span></span></div>
+    </div>
+    <div class="Accodion-Open">
+      ここに文章が入ります。
+    </div>
+  </div>
+  <div class="Idea-Accordion">
+    <div class="Accodion-Toggle">
+      <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">修理</span></div>
+      <div class="ToggleOpen"><span></span><span></span></div>
+    </div>
+    <div class="Accodion-Open">
+      ここに文章が入ります。
+    </div>
+  </div>
+</div>
+
+<h4 id="Reszta" class="GuideTitle">Reszta</h4>
+<div class="AnswerBox">
+  <div class="Idea-Accordion">
+    <div class="Accodion-Toggle">
+      <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">不良商品基準</span></div>
+      <div class="ToggleOpen"><span></span><span></span></div>
+    </div>
+    <div class="Accodion-Open">
+      ここに文章が入ります。
+    </div>
+  </div>
+  <div class="Idea-Accordion">
+    <div class="Accodion-Toggle">
+      <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">修理</span></div>
+      <div class="ToggleOpen"><span></span><span></span></div>
+    </div>
+    <div class="Accodion-Open">
+      ここに文章が入ります。
+    </div>
+  </div>
+</div>
+
+<h4 id="WAFUBAG" class="GuideTitle">WAFUBAG</h4>
+<div class="AnswerBox">
+  <div class="Idea-Accordion">
+    <div class="Accodion-Toggle">
+      <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">不良商品基準</span></div>
+      <div class="ToggleOpen"><span></span><span></span></div>
+    </div>
+    <div class="Accodion-Open">
+      ここに文章が入ります。
+    </div>
+  </div>
+  <div class="Idea-Accordion">
+    <div class="Accodion-Toggle">
+      <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">修理</span></div>
+      <div class="ToggleOpen"><span></span><span></span></div>
+    </div>
+    <div class="Accodion-Open">
+      ここに文章が入ります。
+    </div>
+  </div>
+</div>
+
+<h4 id="SSB" class="GuideTitle">SSB</h4>
+<div class="AnswerBox">
+  <div class="Idea-Accordion">
+    <div class="Accodion-Toggle">
+      <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">不良商品基準</span></div>
+      <div class="ToggleOpen"><span></span><span></span></div>
+    </div>
+    <div class="Accodion-Open">
+      ここに文章が入ります。
+    </div>
+  </div>
+  <div class="Idea-Accordion">
+    <div class="Accodion-Toggle">
+      <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">修理</span></div>
+      <div class="ToggleOpen"><span></span><span></span></div>
+    </div>
+    <div class="Accodion-Open">
+      ここに文章が入ります。
+    </div>
+  </div>
+</div>
+
+<h4 id="BACSAC" class="GuideTitle">BACSAC</h4>
+<div class="AnswerBox">
+  <div class="Idea-Accordion">
+    <div class="Accodion-Toggle">
+      <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">不良商品基準</span></div>
+      <div class="ToggleOpen"><span></span><span></span></div>
+    </div>
+    <div class="Accodion-Open">
+      ここに文章が入ります。
+    </div>
+  </div>
+  <div class="Idea-Accordion">
+    <div class="Accodion-Toggle">
+      <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">修理</span></div>
+      <div class="ToggleOpen"><span></span><span></span></div>
+    </div>
+    <div class="Accodion-Open">
+      ここに文章が入ります。
+    </div>
+  </div>
+</div>
+
+<h4 id="SUBU" class="GuideTitle">SUBU</h4>
+<div class="AnswerBox">
+  <div class="Idea-Accordion">
+    <div class="Accodion-Toggle">
+      <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">不良商品基準</span></div>
+      <div class="ToggleOpen"><span></span><span></span></div>
+    </div>
+    <div class="Accodion-Open">
+      ここに文章が入ります。
+    </div>
+  </div>
+  <div class="Idea-Accordion">
+    <div class="Accodion-Toggle">
+      <div class="accordion__title"><span class="Qmark">{{ 'Idea-Img-Q.png' | asset_url | img_tag }}</span><span class="QText">修理</span></div>
+      <div class="ToggleOpen"><span></span><span></span></div>
+    </div>
+    <div class="Accodion-Open">
+      ここに文章が入ります。
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Idea SHOPPING GUIDE",
+  "tag": "section",
+  "class": "section UnderPage",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Idea SHOPPING GUIDE"
+    }
+  ]
+}
+{% endschema %}

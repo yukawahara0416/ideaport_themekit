@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "main": {
+      "type": "Idea-main-search",
+      "settings": {
+        "title": "Search Results",
+        "products_per_page": 8,
+        "columns_desktop": 4,
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "columns_mobile": "2"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

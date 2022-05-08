@@ -1,0 +1,194 @@
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+<link rel="preload" href="{{ 'component-rte.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
+
+{%- style -%}
+  #gscollectionbottom{
+      max-width: 226px;
+      margin: 75px auto 0;
+      font-family: var(--Idea-Poppins)!important;
+  }
+  @media only screen and (max-width: 640px) {
+      margin: 35px auto 0;
+
+  }
+  #gscollectionbottom button#gsloadmore{
+      display: inline-flex;
+      max-width: none;
+      justify-content: center;
+      align-items: center;
+      border: 0;
+      border-radius: 0px!important;
+      padding: 1.2rem 5rem!important;
+      cursor: pointer;
+      font-size: 1.5rem;
+      letter-spacing: 0.12em!important;
+      text-decoration: none;
+      color: rgb(var(--color-button-text));
+      background-color: rgba(var(--color-button), var(--alpha-button-background));
+  }
+{%- endstyle -%}
+
+{%- unless section.settings.title == blank -%}
+  <h2 class="Idea-PageTitle">{{ section.settings.title | escape }}</h2>
+{%- endunless -%}
+
+<div class="section-{{ section.id }}-padding">
+  {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
+    {{ 'component-facets.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
+
+    <div class="Idea-Sort">
+
+      <style>
+      .facets-container{
+        display: block;
+      }
+      .facets__form {
+        display: block;
+      }
+      .facets__list {
+        width: 100%;
+      }
+      </style>
+
+      <div class="page-width" id="main-collection-filters" data-id="{{ section.id }}">
+        {% render 'Idea-facets', results: collection, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, collapse_on_larger_devices: false %}
+      </div>
+    </div>
+  {%- endif -%}
+
+  <div id="ProductGridContainer">
+    {% comment %} Idea 商品グリッド {% endcomment %}
+    <div class="ItemGridWrapper PD15">
+      {%- paginate collection.products by section.settings.products_per_page -%}
+        {%- if collection.products.size == 0 -%}
+          <div class="collection collection--empty" id="product-grid" data-id="{{ section.id }}">
+            <div class="loading-overlay gradient"></div>
+            <div class="title-wrapper center">
+              <h2 class="title title--primary">
+                {{ 'sections.collection_template.empty' | t }}<br>
+                {{ 'sections.collection_template.use_fewer_filters_html' | t: link: collection.url, class: "underlined-link link" }}
+              </h2>
+            </div>
+          </div>
+        {%- else -%}
+          <div class="collection">
+            <div class="loading-overlay gradient"></div>
+
+            <ul id="product-grid" data-id="{{ section.id }}" class="Idea-Items grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down{% if section.settings.columns_desktop == 1 %} grid--full-width{% else %} grid--{{ section.settings.columns_desktop }}-col-desktop{% endif %}">
+
+              {%- for product in collection.products -%}
+                <li class="grid__item">
+                  <div class="ItemImgArea">
+                    <picture>
+                      <source media="(min-width: 640px)" data-aspectratio="1" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAGAAACH5BAEKAP8ALAAAAAABAAEAAAgEAP8FBAA7" srcset="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.featured_media.alt }}" />
+                      <!-- SP 640px以上なら表示 -->
+                      <img class="lazyload SlideFadeInImg" data-aspectratio="1" src="data:image/gif;base64,R0lGODlhAQABAGAAACH5BAEKAP8ALAAAAAABAAEAAAgEAP8FBAA7" srcset="{{ product.featured_image | image_url: width: 300 }}" alt="{{ product.featured_media.alt }}" />
+                      <!-- それ以外で表示 (SP) -->
+                    </picture>
+                    {% unless product.available %}
+                      <div class="SoldOut">{{ 'products.product.sold_out' | t }}</div>
+                    {% endunless %}
+                  </div>
+                  <div class="TextArea">
+                    <h3>{{ product.title | escape }}</h3>
+
+                    {% render 'Idea-price', product: product %}
+
+                  </div>
+                  <a href="{{ product.url }}" title="{{ product.title | escape }}"></a>
+                </li>
+              {%- endfor -%}
+            </ul>
+
+            {%- if paginate.pages > 1 -%}
+              {% render 'pagination', paginate: paginate, anchor: '' %}
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      {%- endpaginate -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Idea 商品グリッド",
+  "tag": "section",
+  "class": "section Com-Line-Up",
+  "presets": [
+    {
+      "name": "Idea 商品グリッド"
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Featured collection",
+      "label": "t:sections.featured-collection.settings.title.label"
+    },
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 8,
+      "max": 24,
+      "step": 4,
+      "default": 16,
+      "label": "t:sections.main-collection-product-grid.settings.products_per_page.label"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 4,
+      "label": "t:sections.main-collection-product-grid.settings.columns_desktop.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-collection-product-grid.settings.header__1.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_filtering",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.enable_filtering.label",
+      "info": "t:sections.main-collection-product-grid.settings.enable_filtering.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sorting",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.enable_sorting.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-collection-product-grid.settings.header_mobile.content"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "default": "2",
+      "label": "t:sections.main-collection-product-grid.settings.columns_mobile.label",
+      "options": [
+        {
+          "value": "1",
+          "label": "t:sections.main-collection-product-grid.settings.columns_mobile.options__1.label"
+        },
+        {
+          "value": "2",
+          "label": "t:sections.main-collection-product-grid.settings.columns_mobile.options__2.label"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

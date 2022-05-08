@@ -1,0 +1,90 @@
+<!-- ADD CSS -->
+{{ 'Idea-Css-TopItemSlider.css' | asset_url | stylesheet_tag }}
+
+<!-- Top Item Slider -->
+<!-- Swiper Area -->
+<div class="swiper-container Slider2">
+  <div class="swiper-wrapper">
+
+    {%- for block in section.blocks -%}
+    <!-- Slide -->
+    <div class="swiper-slide">
+      <!-- Slide Img Area -->
+      <div class="SildeImgArea">
+        <picture>
+          <!-- PC1080px以上なら表示 -->
+          <source class="lazyload" media="(min-width: 1080px)" data-aspectratio="1920/725" src="data:image/gif;base64,R0lGODlhAQABAGAAACH5BAEKAP8ALAAAAAABAAEAAAgEAP8FBAA7" srcset="{{ block.settings.image-large | img_url: 'master' }}" alt="{{ block.settings.title | escape }}" />
+          <!-- TB1080px未満なら表示 -->
+          <source class="lazyload" media="(min-width: 640px)" data-aspectratio="1" src="data:image/gif;base64,R0lGODlhAQABAGAAACH5BAEKAP8ALAAAAAABAAEAAAgEAP8FBAA7" srcset="{{ block.settings.image-medium | img_url: 'master' }}" alt="{{ block.settings.title | escape }}" />
+          <!-- SP640px未満で表示 -->
+          <img class="lazyload SlideFadeInImg" data-aspectratio="1" src="data:image/gif;base64,R0lGODlhAQABAGAAACH5BAEKAP8ALAAAAAABAAEAAAgEAP8FBAA7" srcset="{{ block.settings.image-medium | img_url: '800x800' }}" alt="{{ block.settings.title | escape }}" />
+        </picture>
+      </div>
+
+      <!-- TextArea-->
+      <div class="Slide-Text Slide-TextfromBottom">
+        <div class="SlideCopy">{{ block.settings.copy | escape }}</div>
+        <h3>{{ block.settings.title | escape }}</h3>
+        <div class="ReadMore">
+          <a href="{{ block.settings.button_link }}" class="">VIEW MORE</a>
+        </div>
+      </div>
+
+    </div>
+    {%- endfor -%}
+
+    <!-- PageNation -->
+    <div class="swiper-pagination swiper-pagination-white"></div>
+    <div class="swiper-button-prev2">{{ 'Idea-Img-LeftArrow.png' | asset_url | img_tag: 'previous' }}</div>
+    <div class="swiper-button-next2">{{ 'Idea-Img-RightArrow.png' | asset_url | img_tag: 'next' }}</div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Idea フッター スライダー",
+  "tag": "section",
+  "class": "TopItemSlider WayPoint-FadeIn section",
+  "max_blocks": 5,
+  "blocks": [
+    {
+      "type": "image",
+      "name": "画像スライド",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "商品名"
+        },
+        {
+          "type": "text",
+          "id": "copy",
+          "label": "商品コピー"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "ボタンのリンク"
+        },
+        {
+          "type": "image_picker",
+          "id": "image-large",
+          "label": "画像（3000x1125）"
+        },
+        {
+          "type": "image_picker",
+          "id": "image-medium",
+          "label": "画像（1200x1200）"
+        }
+      ]
+    }
+  ],
+  "settings": [],
+  "presets": [
+    {
+      "name":  "Idea フッター スライダー",
+      "category": "画像"
+    }
+  ]
+}
+{% endschema %}

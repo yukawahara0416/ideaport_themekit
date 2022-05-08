@@ -1,0 +1,10 @@
+/* SP表示時にサムネイルを横並びにする */
+@media screen and (max-width: 989px) {
+  .slider--mobile {
+    display: flex;
+    gap: 0 5%;
+  }
+  .slider--mobile .slider__slide {
+    flex-shrink: 1;
+  }
+}

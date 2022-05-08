@@ -1,0 +1,46 @@
+<div class="OpenNav">
+  <!-- Menu Area -->
+  <div id="CloseMenuArea">
+    <!-- Hamburger Menu -->
+    <div id="Hamburger">
+      <div class="OpenBtn White"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+
+  <!-- Wrapper -->
+  <div class="Wrapper">
+    <div class="MoveMask">
+
+      {%- if shop.customer_accounts_enabled -%}
+      <!-- Log In -->
+        <div class="LoginSP Poppins">
+          {% if customer %}
+            <a href="{{ routes.account_url }}">MY PAGE</a>
+            <a href="{{ routes.account_logout_url }}">Log Out</a>
+          {% else %}
+            <a href="{{ routes.account_login_url }}">Log In</a>
+          {% endif %}
+        </div>
+      {%- endif -%}
+
+      <!-- Nav -->
+      <ul id="IdeaNav" class="Poppins">
+        <li><a href="{{ routes.root_url }}" title="HOME">HOME</a></li>
+        <li><a href="//ideaport.co.jp/company/" target="_blank" title="ABOUT US">ABOUT US</a></li>
+        <li class="Brand">
+          <h3 class="Brand">BRAND</h3>
+          <dl>
+            {% for link in linklists.brand-list.links %}
+            <dt>
+              <a href="{{ link.url }}" title="{{ link.title | escape }}">{{ link.title | escape }}</a>
+            </dt>
+            {% endfor %}
+          </dl>
+        </li>
+        <li><a href="{{ blogs['news'].url }}" title="{{ blogs['news'].title }}">{{ blogs['news'].title }}</a></li>
+        <li><a href="{{ pages['shopping-guide'].url }}" title="{{ pages['shopping-guide'].title }}">{{ pages['shopping-guide'].title }}</a></li>
+        <li><a href="{{ pages['contact'].url }}" title="{{ pages['contact'].title }}">{{ pages['contact'].title }}</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

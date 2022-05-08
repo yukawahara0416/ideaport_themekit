@@ -1,0 +1,89 @@
+<!-- ADD CSS -->
+{{ 'Idea-Css-TopBannerSlider.css' | asset_url | stylesheet_tag }}
+
+<!-- Top Banner Slider -->
+<!-- Swiper Area -->
+<div class="swiper-container Slider1 lazyload">
+  <div class="swiper-wrapper">
+
+    {%- for block in section.blocks -%}
+    <!-- Slide -->
+    <div class="swiper-slide">
+      <!-- Slide Img Area -->
+      <div class="SildeImgArea">
+        <picture>
+          <!-- PC1080px以上なら表示 -->
+          <source class="lazyload" media="(min-width: 1080px)" data-aspectratio="1920/725" src="data:image/gif;base64,R0lGODlhAQABAGAAACH5BAEKAP8ALAAAAAABAAEAAAgEAP8FBAA7" srcset="{{ block.settings.image-large | img_url: 'master' }}" />
+          <!-- TB1080px未満なら表示 -->
+          <source class="lazyload" media="(min-width: 640px)" data-aspectratio="1" src="data:image/gif;base64,R0lGODlhAQABAGAAACH5BAEKAP8ALAAAAAABAAEAAAgEAP8FBAA7" srcset="{{ block.settings.image-medium | img_url: 'master' }}" />
+          <!-- SP640px未満で表示 -->
+          <img class="lazyload SlideFadeInImg" data-aspectratio="1" src="data:image/gif;base64,R0lGODlhAQABAGAAACH5BAEKAP8ALAAAAAABAAEAAAgEAP8FBAA7" srcset="{{ block.settings.image-medium | img_url: '800x800' }}" alt="{{ block.settings.alt }}" />
+        </picture>
+      </div>
+      <!-- SliderLogoArea-->
+      <div class="SlideLogo">
+        <img class="lazyload" data-aspectratio="352/256" src="data:image/gif;base64,R0lGODlhAQABAGAAACH5BAEKAP8ALAAAAAABAAEAAAgEAP8FBAA7" srcset="{{ block.settings.logo | img_url: 'master' }}" alt="{{ block.settings.alt }}" />
+      </div>
+
+      {%- if block.settings.button_link != blank -%}
+      <a href="{{ block.settings.button_link }}" title="{{ block.settings.alt }}"></a>
+      {%- endif -%}
+
+    </div>
+    {%- endfor -%}
+
+    <!-- PageNation -->
+    <div class="swiper-pagination swiper-pagination-white"></div>
+    <div class="swiper-button-prev2">{{ 'Idea-Img-LeftArrow.png' | asset_url | img_tag: 'previous' }}</div>
+    <div class="swiper-button-next2">{{ 'Idea-Img-RightArrow.png' | asset_url | img_tag: 'next' }}</div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Idea トップスライダー",
+  "tag": "section",
+  "class": "TopBannerSlider WayPoint-FadeIn section",
+  "max_blocks": 5,
+  "blocks": [
+    {
+      "type": "image",
+      "name": "画像スライド",
+      "settings": [
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "代替テキスト（一括適用）"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "ボタンのリンク"
+        },
+        {
+          "type": "image_picker",
+          "id": "image-large",
+          "label": "画像（3000x1125）"
+        },
+        {
+          "type": "image_picker",
+          "id": "image-medium",
+          "label": "画像（1200x1200）"
+        },
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "ロゴ（704x512）"
+        }
+      ]
+    }
+  ],
+  "settings": [],
+  "presets": [
+    {
+      "name":  "Idea トップスライダー",
+      "category": "画像"
+    }
+  ]
+}
+{% endschema %}

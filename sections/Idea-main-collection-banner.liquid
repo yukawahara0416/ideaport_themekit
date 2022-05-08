@@ -1,0 +1,26 @@
+{{ 'component-collection-hero.css' | asset_url | stylesheet_tag }}
+
+<!-- ADD CSS -->
+{{ 'Idea-Css-Collection.css' | asset_url | stylesheet_tag }}
+
+<picture>
+  <source media="(min-width: 1080px)" data-aspectratio="1920/725" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAGAAACH5BAEKAP8ALAAAAAABAAEAAAgEAP8FBAA7" srcset="{{ collection.metafields.my_fields.brand_image_pc | file_url }}">
+  <!-- PC1080px以上なら表示 -->
+  <source media="(min-width: 640px)" data-aspectratio="1" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAGAAACH5BAEKAP8ALAAAAAABAAEAAAgEAP8FBAA7" srcset="{{ collection.metafields.my_fields.brand_image_tablet | file_url }}">
+  <!-- TB1080px以上なら表示 -->
+  <img class="lazyload" data-aspectratio="1" src="data:image/gif;base64,R0lGODlhAQABAGAAACH5BAEKAP8ALAAAAAABAAEAAAgEAP8FBAA7" srcset="{{ collection.metafields.my_fields.brand_image_sp | file_url }}" alt="{{ collection.title | escape }}">
+  <!-- それ以外で表示 (SP) -->
+</picture>
+
+{% schema %}
+{
+  "name": "Idea コレクションバナー",
+  "class": "section Idea-Collection-Banner",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Idea コレクションバナー"
+    }
+  ]
+}
+{% endschema %}

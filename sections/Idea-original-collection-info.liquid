@@ -1,0 +1,34 @@
+{{ 'component-collection-hero.css' | asset_url | stylesheet_tag }}
+
+<!-- ADD CSS -->
+{{ 'Idea-Css-Collection.css' | asset_url | stylesheet_tag }}
+
+<div class="Collection-Info-Inner">
+  <div class="Collection-Title-Area">
+    <div class="Collection-Title-Area-Wrapper">
+      <h2>
+        <img loading="lazy" class="lazyload" src="{{ collection.image | image_url }}" alt="{{ collection.title }}">
+      </h2>
+      <ul>
+        <li><a href="{{ collection.metafields.my_fields.collection_instagram }}" target="_blank" title="Instagram"><img loading="lazy" class="lazyload" src="{{ 'Idea-Img-Instagram-Icom.png' | asset_url }}" alt="{{ collection.title | escape }}"></a></li>
+        <li><a href="{{ collection.metafields.my_fields.collection_brand_url }}" target="_blank" title="OFFICIAL SITE"><img loading="lazy" class="lazyload" src="{{ 'Idea-Img-home-Icom.png' | asset_url }}" alt="{{ collection.title | escape }}"></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="Collection-Discription-Area">
+    {{ collection.description }}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Idea コレクションインフォ",
+  "class": "section Idea-Collection-Info",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Idea コレクションインフォ"
+    }
+  ]
+}
+{% endschema %}

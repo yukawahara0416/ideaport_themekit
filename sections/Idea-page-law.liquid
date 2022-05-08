@@ -1,0 +1,22 @@
+<!-- ADD CSS -->
+{{ 'Idea-Css-UnderPage.css' | asset_url | stylesheet_tag }}
+
+<h2 class="Idea-PageTitle UnderLine">特定商取引法に基づく表記</h2>
+
+<div class="Idea-Privacy-Area">
+  {{ page.content }}
+</div>
+
+{% schema %}
+{
+  "name": "Idea 特定商取引法に基づく表記",
+  "tag": "section",
+  "class": "section UnderPage",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Idea 特定商取引法に基づく表記"
+    }
+  ]
+}
+{% endschema %}

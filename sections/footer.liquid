@@ -1,0 +1,120 @@
+{% comment %}theme-check-disable UndefinedObject{% endcomment %}
+{{ 'section-footer.css' | asset_url | stylesheet_tag }}
+<link rel="stylesheet" href="{{ 'component-newsletter.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-list-payment.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-list-social.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'disclosure.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<!-- ADD CSS -->
+{{ 'Idea-Css-Footer.css' | asset_url | stylesheet_tag }}
+
+<noscript>{{ 'component-newsletter.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-list-menu.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-list-payment.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-list-social.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'disclosure.css' | asset_url | stylesheet_tag }}</noscript>
+
+<!-- Common Footer Banner -->
+<section id="" class="CommonFooterBanner shopify-section WayPoint-FadeIn">
+  <div class="Inner">
+    {% for link in linklists.brand-list.links %}
+      {% assign brand_collection = collections[link.title] %}
+        {% if brand_collection.image %}
+          <a href="{{ brand_collection.url }}">
+          {{ brand_collection.image | image_url: '250x250' | img_tag: brand_collection.title, 'lazyload FadeInImg' }}
+          </a>
+        {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<!-- Footer -->
+<footer id="IdeaFooter" class="footer WayPoint-FadeIn">
+  <!-- Footer Logo -->
+  <h2 class="fLogo">
+    <a href="{{ routes.root_url }}">{{ "Idea-Img-HLogo.png" | asset_url | img_tag: shop.name }}</a>
+  </h2>
+  <!-- Insta Icon -->
+  <div class="fInstaIcon">
+    <a href="#" target="_blank">{{ "Idea-Img-Footer-InstagramIcon.png" | asset_url | img_tag: "Instagram" }}</a>
+  </div>
+  <!-- Footer Nav -->
+  <ul id="FooterNav" class="Poppins">
+    <li><a href="//ideaport.co.jp/company/" target="_blank" title="ABOUT US">ABOUT US</a></li>
+    <li><a href="{{ pages['shopping-guide'].url }}" title="ご利用ガイド">ご利用ガイド</a></li>
+    <li><a href="{{ pages['law'].url }}" title="特定商取引に関する表示">特定商取引に関する表示</a></li>
+    <li><a href="//ideaport.co.jp/company#CompanyProfile" target="_blank" title="運営会社情報">運営会社情報</a></li>
+    <li><a href="{{ pages['privacy-policy'].url }}" title="プライバシーポリシー">プライバシーポリシー</a></li>
+    <li><a href="{{ pages['contact'].url }}" title="{{ pages['contact'].title }}">お問い合わせ</a></li>
+  </ul>
+  <!-- Copy Rights -->
+  <div class="fCopyrights">
+    Copyright &copy; <a href="{{ routes.root_url }}">IDEAPORT.</a> All Rights Reserved.
+  </div>
+</footer>
+
+<!-- Page Top -->
+<div id="PageTop">
+  <a href="#">{{ "Idea-Img-ArrowUp.png" | asset_url | img_tag: "PAGE TOP" }}</a>
+</div>
+
+{% javascript %}
+  class LocalizationForm extends HTMLElement {
+    constructor() {
+      super();
+      this.elements = {
+        input: this.querySelector('input[name="locale_code"], input[name="country_code"]'),
+        button: this.querySelector('button'),
+        panel: this.querySelector('.disclosure__list-wrapper'),
+      };
+      this.elements.button.addEventListener('click', this.openSelector.bind(this));
+      this.elements.button.addEventListener('focusout', this.closeSelector.bind(this));
+      this.addEventListener('keyup', this.onContainerKeyUp.bind(this));
+
+      this.querySelectorAll('a').forEach(item => item.addEventListener('click', this.onItemClick.bind(this)));
+    }
+
+    hidePanel() {
+      this.elements.button.setAttribute('aria-expanded', 'false');
+      this.elements.panel.setAttribute('hidden', true);
+    }
+
+    onContainerKeyUp(event) {
+      if (event.code.toUpperCase() !== 'ESCAPE') return;
+
+      this.hidePanel();
+      this.elements.button.focus();
+    }
+
+    onItemClick(event) {
+      event.preventDefault();
+      const form = this.querySelector('form');
+      this.elements.input.value = event.currentTarget.dataset.value;
+      if (form) form.submit();
+    }
+
+    openSelector() {
+      this.elements.button.focus();
+      this.elements.panel.toggleAttribute('hidden');
+      this.elements.button.setAttribute('aria-expanded', (this.elements.button.getAttribute('aria-expanded') === 'false').toString());
+    }
+
+    closeSelector(event) {
+      const shouldClose = event.relatedTarget && event.relatedTarget.nodeName === 'BUTTON';
+      if (event.relatedTarget === null || shouldClose) {
+        this.hidePanel();
+      }
+    }
+  }
+
+  customElements.define('localization-form', LocalizationForm);
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "t:sections.footer.name"
+}
+{% endschema %}

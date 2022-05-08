@@ -1,0 +1,61 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+<link rel="stylesheet" href="{{ 'component-slider.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'template-collection.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<noscript>{{ 'component-slider.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'template-collection.css' | asset_url | stylesheet_tag }}</noscript>
+
+<!-- ADD CSS -->
+{{ 'Idea-Css-TopCollection.css' | asset_url | stylesheet_tag }}
+
+{%- unless section.settings.title == blank -%}
+<h2 class="Idea-PageTitle">{{ section.settings.title | escape }}</h2>
+{%- endunless -%}
+
+<!-- Collection Banners Wrapper -->
+<div id="TopCollectionBanners-Wrapper">
+  <!-- Collection Banners (Grid) -->
+  <ul class="collection-list grid grid--2-col grid--3-col-desktop grid--2-col-tablet" role="list">
+
+    {% for link in linklists.brand-list.links %}
+      {% assign brand_collection = collections[link.title] %}
+      <li class="collection-list__item grid__item">
+        <div class="BrandImgArea">
+          <figure>
+            {{ brand_collection.metafields.my_fields.brand_image_top | file_url | img_tag: brand_collection.title, 'lazyload' }}
+          </figure>
+          <div class="BrandLogo">
+            {{ brand_collection.image | image_url: '250x250' | img_tag: brand_collection.title, 'lazyload' }}
+          </div>
+        </div>
+        <div class="MoveTextMask">
+          <h3>{{ brand_collection.title | escape }}<span class="BrandGenre">{{ brand_collection.metafields.my_fields.brand_genre | escape}}</span></h3>
+        </div>
+        <a href="{{ brand_collection.url }}" title="{{ brand_collection.title | escape }}"></a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% schema %}
+{
+  "name": "Idea BRANDコレクション",
+  "tag": "section",
+  "class": "TopCollection WayPoint-FadeIn section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Featured collection",
+      "label": "t:sections.featured-collection.settings.title.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Idea BRANDコレクション"
+    }
+  ]
+}
+{% endschema %}

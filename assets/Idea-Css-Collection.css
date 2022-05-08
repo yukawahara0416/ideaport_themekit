@@ -1,0 +1,338 @@
+/* ====================================================
+0: COLLECTION BANNER
+==================================================== */
+#Idea-Com-Page-Wrapper,
+.Idea-Com-Page-Wrapper {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  /* //border: 1px solid red; */
+}
+
+/* ====================================================
+1: COLLECTION BANNER
+==================================================== */
+#Idea-Collection-Banner,
+.Idea-Collection-Banner {
+  /* //border: 5px solid red; */
+  /* //border-top: 5px solid #373737; */
+  background: #fff;
+  width: 100%;
+  height: 720px;
+  overflow: hidden;
+  position: relative;
+}
+/********************** (PC 1080px 以下) ********************* */
+@media only screen and (max-width: 1080px) {
+  #Idea-Collection-Banner,
+  .Idea-Collection-Banner {
+    height: 600px;
+  }
+}
+/********************** (PC 1080px 以下) ********************* */
+/********************** (SP 640px 以下) ********************* */
+@media only screen and (max-width: 640px) {
+  #Idea-Collection-Banner,
+  .Idea-Collection-Banner {
+    height: 500px;
+  }
+}
+/********************** (SP 640px 以下) ********************* */
+/*==== LAZYLOADED === */
+#Idea-Collection-Banner picture,
+.Idea-Collection-Banner picture {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+/*==== Img  === */
+#Idea-Collection-Banner picture img,
+.Idea-Collection-Banner picture img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover; /* この一行を追加するだけ！ */
+}
+/* ====================================================
+2: COLLECTION INFORMATION
+==================================================== */
+#Idea-Collection-Info,
+.Idea-Collection-Info {
+  padding: 85px 20px 65px;
+  background: var(--LightGrayBG);
+  margin: 0 auto 0;
+}
+/*=== Inner === */
+.Collection-Info-Inner {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1080px;
+  display: flex;
+  -webkit-display: flex;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -webkit-align-items: center;
+  align-items: center;
+}
+/*----------------------------------------------
+2-1: TITLE AREA
+---------------------------------------------- */
+.Collection-Title-Area {
+  /* //max-width: 360px; */
+  /* //border: 1px solid red; */
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: 45%;
+}
+.Collection-Title-Area h2 {
+  max-width: 360px;
+  margin-bottom: 25px;
+}
+.Collection-Title-Area h2 img {
+  width: 100%;
+}
+.Collection-Title-Area ul {
+  display: flex;
+  -webkit-display: flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+.Collection-Title-Area ul li {
+  margin: 0 15px;
+}
+.Collection-Title-Area ul li img {
+  width: 24px;
+  height: auto;
+}
+/*----------------------------------------------
+2-2: COLLECTION DESCRIPTION
+---------------------------------------------- */
+.Collection-Discription-Area {
+  /* //border: 1px solid red; */
+  max-width: 55%;
+  font-family: var(--font-family);
+}
+
+.Collection-Discription-Area h3 {
+  text-align: center;
+  line-height: 2.2;
+  margin: 0 auto 40px;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  font-family: var(--font-family);
+  color: #000;
+  font-size: 26px;
+}
+.Collection-Discription-Area p {
+  text-align: center;
+  line-height: 2.2;
+  margin: 0 auto 20px;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+
+  color: #000;
+  font-size: 16px;
+}
+.Collection-Discription-Area p:last-of-type {
+  margin-bottom: 0;
+}
+/********************** (PC 1240px 以下) ********************* */
+@media only screen and (max-width: 1240px) {
+  /* .Collection-Title-Area {
+  } */
+  .Collection-Title-Area h2 {
+    width: 280px;
+    margin-bottom: 20px;
+  }
+  .Collection-Discription-Area p {
+    font-size: 14px;
+    letter-spacing: 0.025em;
+    line-height: 1.8;
+  }
+}
+/********************** (PC 1240px 以下) ********************* */
+/********************** (PC 1080px 以下) ********************* */
+@media only screen and (max-width: 1080px) {
+  #Idea-Collection-Info,
+  .Idea-Collection-Info {
+    padding: 65px 15px 55px;
+  }
+}
+/********************** (TB 840px 以下) ********************* */
+@media only screen and (max-width: 840px) {
+  .Collection-Title-Area h2 {
+    width: 260px;
+  }
+  .Collection-Discription-Area h3 {
+    font-size: 20px;
+    margin: 0 auto 30px;
+  }
+  .Collection-Discription-Area p br {
+    display: none;
+  }
+  .Collection-Discription-Area p br.NoBr,
+  .Collection-Discription-Area p br.NoBrSP {
+    display: block;
+  }
+}
+/********************** (TB 840px 以下) ********************* */
+/********************** (TB 640px 以下) ********************* */
+@media only screen and (max-width: 640px) {
+  #Idea-Collection-Info,
+  .Idea-Collection-Info {
+    padding: 30px 15px 45px;
+  }
+  .Collection-Info-Inner {
+    display: block;
+  }
+  .Collection-Title-Area {
+    width: 100%;
+    margin: 0 auto 30px;
+  }
+  .Collection-Title-Area h2 {
+    width: 150px;
+  }
+
+  .Collection-Discription-Area {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .Collection-Discription-Area p br.NoBrSP {
+    display: none;
+  }
+}
+/********************** (TB 640px 以下) ********************* */
+
+.facet-filters.sorting {
+  display: none;
+}
+
+.product-count {
+  display: none;
+}
+.mobile-facets__details js-filter {
+  display: none;
+}
+/*----------------------------------------------
+4: COM-LINE-UP
+---------------------------------------------- */
+.Com-Line-Up {
+  width: 100%;
+}
+
+/*----------------------------------------------
+5: facets 上書き
+---------------------------------------------- */
+.facets-container {
+  /* //border: 1px solid red; */
+  display: block;
+}
+.facet-filters__field {
+  display: none !important;
+  background: blue;
+}
+.page-width {
+  padding: 0;
+}
+/*==== Ul ===*/
+.facets__list {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  -webkit-display: flex;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  justify-content: center;
+  -webkit-justify-content: center;
+}
+.facets__item {
+  position: relative;
+}
+.facets__item label {
+  display: -webkit-flex;
+  line-height: 1;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  padding: 9px 33px;
+  margin: 0 8px 15px;
+  color: #000;
+  background: #fff;
+  z-index: 2;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  font-size: 16px;
+  position: relative; /* ボックスの位置を指定する */
+  transition: all 0.3s linear;
+}
+.facet-checkbox span {
+  font-size: 13px;
+  font-weight: 400;
+  padding-left: 0.4em;
+}
+.facets__item input[type="checkbox"]:checked + label {
+  background: #000;
+  color: #fff;
+}
+.facets__item input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 1.6rem;
+  height: 1.6rem;
+  top: 0rem;
+  left: 0rem;
+  z-index: -1 !important;
+}
+/********************** (TB 1080px 以下) ********************* */
+@media only screen and (max-width: 1080px) {
+  .facets__item label {
+    padding: 8px 25px;
+    background: #fff;
+    color: #000;
+    margin: 0 5px 10px;
+    font-size: 14px;
+  }
+  .facet-checkbox span {
+    font-size: 12px;
+  }
+}
+/********************** (TB 1080px 以下) ********************* */
+/********************** (SP 749px 以下) ********************* */
+@media only screen and (max-width: 749px) {
+  .small-hide {
+    display: block !important;
+  }
+}
+/********************** (SP 640px 以下) ********************* */
+@media only screen and (max-width: 640px) {
+  .facets__list {
+    -webkit-align-items: center;
+    align-items: center;
+  }
+  .facets-container {
+    display: block;
+  }
+  .facets__item {
+    width: calc(50% - 5px) !important;
+  }
+  .facets__item label {
+    width: 100%;
+    padding: 10px 5px;
+    justify-content: center;
+    font-size: 3.27102803vw;
+    -webkit-justify-content: center;
+  }
+  .facet-checkbox span {
+    font-size: 2.803738vw;
+  }
+}
+/********************** (SP 640px 以下) ********************* */

@@ -1,0 +1,258 @@
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+<link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<!-- ADD CSS -->
+{{ 'Idea-Css-Collection.css' | asset_url | stylesheet_tag }}
+{{ 'Idea-Css-CommonItems.css' | asset_url | stylesheet_tag }}
+
+<noscript>{{ 'component-search.css' | asset_url | stylesheet_tag }}</noscript>
+
+{%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
+  {{ 'component-facets.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+<style>
+  .template-search__header {
+    margin-bottom: 3rem;
+  }
+
+  .template-search__search {
+    margin: 0 auto 3.5rem;
+    max-width: 47.8rem;
+  }
+
+  .template-search__search .search {
+    margin-top: 3rem;
+  }
+
+  .template-search--empty {
+    padding-bottom: 18rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .template-search__header {
+      margin-bottom: 5rem;
+    }
+  }
+
+  .search__button .icon {
+    height: 1.8rem;
+  }
+</style>
+
+{%- liquid
+  assign sort_by = search.sort_by | default: search.default_sort_by
+  assign terms = search.terms | escape
+  assign search_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
+-%}
+
+<div class="template-search{% unless search.performed and search.results_count > 0 %} template-search--empty{% endunless %} section-{{ section.id }}-padding">
+  <div class="template-search__header page-width center">
+    <h2 class="Idea-PageTitle">{{ section.settings.title | escape }}</h2>
+
+    <div class="template-search__search">
+      <form action="{{ routes.search_url }}" method="get" role="search" class="search">
+        <div class="field">
+          <input
+            class="search__input field__input"
+            id="Search-In-Template"
+            type="search"
+            name="q"
+            value="{{ search.terms | escape }}"
+            placeholder="{{ 'general.search.search' | t }}"
+            {%- if settings.predictive_search_enabled -%}
+              role="combobox"
+              aria-expanded="false"
+              aria-owns="predictive-search-results-list"
+              aria-controls="predictive-search-results-list"
+              aria-haspopup="listbox"
+              aria-autocomplete="list"
+              autocorrect="off"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+            {%- endif -%}
+          >
+          <label class="field__label" for="Search-In-Template">{{ 'general.search.search' | t }}</label>
+          <input name="options[prefix]" type="hidden" value="last">
+
+          <button type="submit" class="search__button field__button" aria-label="{{ 'general.search.search' | t }}">
+            <svg class="icon icon-search">
+              <use xlink:href="#icon-search">
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    {%- if search.performed -%}
+      <p role="status">{{ 'templates.search.results_with_count_and_term' | t: terms: search.terms, count: search.results_count }}</p>
+      {%- if search.results_count == 0 and search.filters == empty -%}
+        <p role="status">{{ 'templates.search.no_results' | t: terms: search.terms }}</p>
+      {%- endif -%}
+    {%- else -%}
+      <p role="status">検索結果0件</p>
+      <p role="status">検索キーワードが入力されていません。単語やフレーズを入力してください。</p>
+    {%- endif -%}
+  </div>
+
+  {%- if search.performed -%}
+    {%- if search.filters != empty -%}
+      {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
+
+          <div class="Idea-Sort">
+
+            <style>
+            .facets-container{
+              display: block;
+            }
+            .facets__form {
+              display: block;
+            }
+            .facets__list {
+              width: 100%;
+            }
+            </style>
+
+            <div class="page-width">
+              {% render 'Idea-facets', results: search, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, collapse_on_larger_devices: false %}
+            </div>
+          </div>
+      {%- endif -%}
+    {%- endif -%}
+
+    <div id="ProductGridContainer">
+      {% comment %} Idea 商品グリッド {% endcomment %}
+      <div class="ItemGridWrapper PD15">
+        {% paginate search.results by section.settings.products_per_page %}
+          {%- if search.results.size == 0 and search.filters != empty -%}
+            <div class="template-search__results collection collection--empty" id="product-grid" data-id="{{ section.id }}">
+              <div class="loading-overlay gradient"></div>
+              <div class="title-wrapper center">
+                <h2 class="title title--primary">
+                  {{ 'sections.collection_template.empty' | t }}<br>
+                  {{ 'sections.collection_template.use_fewer_filters_html' | t: link: search_url, class: "underlined-link link" }}
+                </h2>
+              </div>
+            </div>
+          {%- else -%}
+            <div class="template-search__results collection" id="product-grid" data-id="{{ section.id }}">
+              <div class="loading-overlay gradient"></div>
+
+              <ul data-next-url="{{ paginate.next.url }}" class="products-on-page Idea-Items grid product-grid  grid--{{ section.settings.columns_mobile }}-col-tablet-down{% if section.settings.columns_desktop == 1 %} grid--full-width{% else %} grid--{{ section.settings.columns_desktop }}-col-desktop{% endif %}" role="list">
+
+                {%- for item in search.results -%}
+
+                  <li class="grid__item">
+                    <div class="ItemImgArea">
+                      <picture>
+                        <source media="(min-width: 640px)" data-aspectratio="1" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAGAAACH5BAEKAP8ALAAAAAABAAEAAAgEAP8FBAA7" srcset="{{ item.featured_image | image_url: width: 600 }}" alt="{{ item.featured_media.alt }}" />
+                        <!-- SP 640px以上なら表示 -->
+                        <img class="lazyload SlideFadeInImg" data-aspectratio="1" src="data:image/gif;base64,R0lGODlhAQABAGAAACH5BAEKAP8ALAAAAAABAAEAAAgEAP8FBAA7" srcset="{{ item.featured_image | image_url: width: 300 }}" alt="{{ item.featured_media.alt }}" />
+                        <!-- それ以外で表示 (SP) -->
+                      </picture>
+                      {% unless item.available %}
+                        <div class="SoldOut">{{ 'products.product.sold_out' | t }}</div>
+                      {% endunless %}
+                    </div>
+                    <div class="TextArea">
+                      <h3>{{ item.title | escape }}</h3>
+
+                      {% render 'Idea-price', product: item %}
+
+                    </div>
+                    <a href="{{ item.url }}" title="{{ item.title | escape }}"></a>
+                  </li>
+                {%- endfor -%}
+              </ul>
+
+              {%- if paginate.pages > 1 -%}
+                {% render 'Idea-pagination', paginate: paginate %}
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        {% endpaginate %}
+      </div>
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Idea 検索結果",
+  "tag": "section",
+  "class": "section Com-Line-Up",
+  "presets": [
+    {
+      "name": "Idea 検索結果"
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Search Results",
+      "label": "t:sections.featured-collection.settings.title.label"
+    },
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 8,
+      "max": 24,
+      "step": 4,
+      "default": 16,
+      "label": "t:sections.main-collection-product-grid.settings.products_per_page.label"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 4,
+      "label": "t:sections.main-search.settings.columns_desktop.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-collection-product-grid.settings.header__1.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_filtering",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.enable_filtering.label",
+      "info": "t:sections.main-collection-product-grid.settings.enable_filtering.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sorting",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.enable_sorting.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-search.settings.header_mobile.content"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "default": "2",
+      "label": "t:sections.main-search.settings.columns_mobile.label",
+      "options": [
+        {
+          "value": "1",
+          "label": "t:sections.main-search.settings.columns_mobile.options__1.label"
+        },
+        {
+          "value": "2",
+          "label": "t:sections.main-search.settings.columns_mobile.options__2.label"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

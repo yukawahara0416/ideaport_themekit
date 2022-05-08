@@ -1,0 +1,492 @@
+/* ====================================================
+1: SLIDE BACK GROUND
+==================================================== */
+.SlideBackground {
+  display: block !important;
+  top: 0%;
+  left: 0%;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  visibility: hidden;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 6;
+} /*/.SlideBackground */
+/* == Active (with JQuery) == */
+.SlideBackground.Triggered {
+  visibility: visible;
+  opacity: 1;
+  animation: animateMenuOpen var(--duration-default) ease;
+}
+.SlideBackground.FancyOpened {
+  visibility: visible;
+  opacity: 1;
+  animation: animateMenuOpen 0.1 ease;
+}
+/* ====================================================
+2: HOVER ANIMATION (Only PC)
+==================================================== */
+.is-PC a {
+  transition: color 0.3s linear;
+}
+/*=== Hover Img Animation ==== */
+@keyframes HoverOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.8;
+  }
+} /*/@keyframes Hover Img Animation */
+/* ====================================================
+3: LAZYLOAD
+==================================================== */
+img.FadeInImg,
+img.SlideFadeInImg2 {
+  opacity: 0;
+}
+img.FadeInImg.Active.lazyloaded,
+img.SlideFadeInImg2.lazyloaded {
+  animation: CommonFadeIn 1.4s;
+  animation-fill-mode: forwards;
+}
+@keyframes CommonFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+} /*/@keyframes CommonFadeIn */
+@keyframes CommonFadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+} /*/@keyframes CommonFadeIn */
+/* ====================================================
+4: MAIN
+==================================================== */
+main {
+  padding-bottom: 90px;
+  padding-top: 100px;
+}
+/*----------------------------------------------
+4-1: TOP PAGE
+---------------------------------------------- */
+main.TopPagePadding {
+  padding-bottom: 0px;
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+@media only screen and (max-width: 1080px) {
+  main {
+    padding-top: 80px;
+  }
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+/********************** (SP 640px �ȉ�) ********************* */
+@media only screen and (max-width: 640px) {
+  main {
+    padding-top: 75px;
+  }
+}
+/********************** (SP 640px �ȉ�) ********************* */
+/* ====================================================
+5: PAGE (SECTION TITLE)
+==================================================== */
+h2.Idea-PageTitle {
+  font-size: 25px;
+  letter-spacing: 0.1em;
+  font-family: "Poppins", "Noto Sans JP", sans-serif;
+  color: #000;
+  margin: 0 auto 50px;
+  text-align: center;
+  font-weight: 600;
+}
+h2.Idea-PageTitle.UnderLine {
+  border-bottom: 1px solid #e8e8e8;
+  max-width: 1080px;
+  padding-bottom: 55px;
+}
+
+h2.Idea-PageTitle a {
+  color: #000;
+  text-decoration: none;
+}
+h2.Idea-PageTitle a:hover {
+  color: var(--Idea-hover-color);
+}
+/********************** (SP 640px �ȉ�) ********************* */
+@media only screen and (max-width: 640px) {
+  h2.Idea-PageTitle {
+    margin: 0 auto 35px;
+  }
+}
+/********************** (SP 640px �ȉ�) ********************* */
+/* ====================================================
+6: READ MORE
+==================================================== */
+.ReadMore {
+  max-width: 226px;
+  margin: 0 auto;
+  font-family: var(--Idea-Poppins);
+}
+.ReadMore a,
+.gscollectionbottom button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  padding: 1.2rem 3rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: rgb(var(--color-button-text));
+  background-color: rgba(var(--color-button), var(--alpha-button-background));
+}
+/*==== Hover  === */
+.is-PC .ReadMore a {
+  transition: background-color 0.3s linear;
+}
+.is-PC .ReadMore a:hover {
+  background: var(--Idea-hover-color);
+  border: none;
+  box-shadow: none;
+}
+/* ====================================================
+7: BREAD CRUMB
+==================================================== */
+.BreadCramb-Area {
+  width: 100%;
+  margin: 0 auto 20px;
+  background: #373737;
+  padding: 0px 0;
+}
+.BreadCrumb {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 5px 20px 0;
+  position: relative;
+  display: flex;
+  -webkit-display: flex;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -webkit-align-items: center;
+  align-items: center;
+  color: #fff;
+  font-size: 14px;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+}
+/*=== a === */
+.BreadCrumb a {
+  color: #fff;
+  padding-right: 14px;
+  font-size: 14px !important;
+}
+.BreadCrumb a:hover {
+  color: var(--Idea-hover-color);
+}
+/*=== Line === */
+.BreadCrumb .BreadLine {
+  padding-right: 14px;
+  padding-top: 8px;
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+@media only screen and (max-width: 1080px) {
+  .BreadCramb-Area {
+    padding: 0px 0;
+  }
+  .BreadCrumb {
+    padding: 5px 15px;
+    font-size: 12px;
+  }
+  .BreadCrumb a {
+    padding-right: 12px;
+    font-size: 12px !important;
+  }
+  .BreadCrumb .BreadLine {
+    transform: scale(0.8);
+    padding-right: 12px;
+  }
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+/********************** (PC 1080px �ȉ�) ********************* */
+@media only screen and (max-width: 640px) {
+  .BreadCramb-Area {
+    padding: 0px 0 0;
+    margin-bottom: 10px;
+  }
+  .BreadCrumb {
+    padding: 1px 15px;
+    font-size: 11px;
+  }
+  .BreadCrumb a {
+    font-size: 11px !important;
+    padding-right: 10px;
+  }
+  .BreadCrumb .BreadLine {
+    padding-right: 10px;
+  }
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+/* ====================================================
+8: BUTTON (�㏑��)
+==================================================== */
+.button {
+  transition: background 0.4s;
+}
+.button:hover {
+  color: #fff;
+  background: var(--Idea-hover-color);
+}
+.button:not([disabled]):hover::after,
+.shopify-challenge__button:hover::after,
+.customer button:hover::after,
+.shopify-payment-button__button--unbranded:hover::after {
+  --border-offset: 0px;
+  box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) rgba(var(--color-button-text), var(--border-opacity)), 0 0 0 calc(var(--buttons-border-width) + 0px) rgba(var(--color-button), var(--alpha-button-background));
+}
+/* ====================================================
+9: ACCORDION
+==================================================== */
+.Accordion-Area {
+  padding-top: 2.5rem;
+}
+/*=== Accordion === */
+.Idea-Acordion {
+  display: block;
+  margin-top: 2.5rem;
+  margin-bottom: 0;
+}
+/*=== Toggle === */
+.Accodion-Toggle {
+  display: flex;
+  -webkit-display: flex;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -webkit-align-items: center;
+  align-items: center;
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  padding: 20px 10px 20px 0;
+  cursor: pointer;
+}
+/*=== Title H3 === */
+.Accodion-Toggle .accordion__title {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  font-family: var(--Idea-Poppins);
+  text-transform: uppercase;
+}
+/*=== Toggle === */
+.ToggleOpen {
+  margin-right: 10px;
+  position: relative;
+  background: none;
+  cursor: pointer;
+  width: 14px;
+  height: 14px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  /* //border: 1px solid red; */
+}
+.ToggleOpen span {
+  display: inline-block;
+  position: absolute;
+  left: 0px;
+  height: 2px;
+  background: #999;
+  transition: all 0.3s;
+}
+/*=== Header === */
+.ToggleOpen span:nth-of-type(1) {
+  top: 0px;
+  width: 100%;
+  -webkit-transform: translateY(7px) rotate(90deg);
+  transform: translateY(7px) rotate(90deg);
+  opacity: 1;
+}
+.ToggleOpen span:nth-of-type(2) {
+  top: calc(50% - 0px);
+  width: 100%;
+}
+.Accodion-Toggle.Active .ToggleOpen span:nth-of-type(1) {
+  top: calc(50% - 0px);
+  left: 0;
+  -webkit-transform: translateY(0px) rotate(0deg);
+  transform: translateY(0px) rotate(0deg);
+}
+/*=== Open Contents === */
+.Accodion-Open {
+  display: none;
+  padding: 20px 10px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+/********************** (SP 640px �ȉ�) ********************* */
+@media only screen and (max-width: 640px) {
+  .Accodion-Open {
+    padding: 20px 15px;
+    font-size: 12px;
+  }
+}
+/********************** (SP 640px �ȉ�) ********************* */
+/* ====================================================
+10: SNS
+==================================================== */
+.SNSFooter {
+  width: 100%;
+  height: 60px;
+  padding-top: 10px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+/* === �{�^���v�f === */
+.SNSFooter .SBtn {
+  display: inline-block;
+  margin: 0 10px 5px;
+  height: 25px;
+}
+/* === Facebook Like === */
+.SNSFooter .fb {
+  margin: 0 0px 5px;
+}
+/* === Line === */
+.SNSFooter .Line {
+  margin-left: 15px;
+}
+/********************** (TB 1080px �ȉ�) ********************* */
+@media only screen and (max-width: 1080px) {
+  .SNSFooter {
+    height: 50px;
+  }
+}
+/********************** (/TB 1080px �ȉ�) ********************* */
+/********************** (SP 640px �ȉ�) ********************* */
+@media only screen and (max-width: 640px) {
+  .SNSFooter {
+    height: auto;
+    padding: 4.672897vw 0 2.336448vw;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+  }
+  .SBtn {
+    margin: 0 3px 8px !important;
+  }
+  .Line {
+    margin-left: 3px;
+  }
+}
+/********************** (SP 640px �ȉ�) ********************* */
+/* ====================================================
+11: SORT BTN
+==================================================== */
+.Idea-Sort {
+  margin: 0 auto 55px;
+  padding: 35px 20px 15px;
+  background: var(--LightGrayBG);
+}
+.Idea-Sort ul {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  -webkit-display: flex;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  justify-content: center;
+  -webkit-justify-content: center;
+}
+.Idea-Sort ul li a {
+  display: -webkit-flex;
+  line-height: 1;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  padding: 9px 33px;
+  background: #fff;
+  color: #000;
+  margin: 0 8px 15px;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  font-size: 16px;
+}
+.is-PC .Idea-Sort ul li a {
+  transition: background 0.3s linear;
+}
+.Idea-Sort ul li a span {
+  font-size: 13px;
+  font-weight: 400;
+  padding-left: 0.2em;
+}
+.Idea-Sort ul li a:hover,
+.Idea-Sort ul li.On a {
+  color: #fff;
+  background: #000;
+}
+/********************** (TB 1080px �ȉ�) ********************* */
+@media only screen and (max-width: 1080px) {
+  .Idea-Sort {
+    margin: 0 auto 45px;
+    padding: 25px 15px 10px;
+  }
+  .Idea-Sort ul li a {
+    padding: 8px 25px;
+    background: #fff;
+    color: #000;
+    margin: 0 5px 10px;
+    font-size: 14px;
+  }
+  .Idea-Sort ul li a span {
+    font-size: 12px;
+  }
+}
+/********************** (TB 1080px �ȉ�) ********************* */
+/********************** (SP 640px �ȉ�) ********************* */
+@media only screen and (max-width: 640px) {
+  .Idea-Sort {
+    margin: 0 auto 30px;
+  }
+  .Idea-Sort ul {
+    -webkit-align-items: center;
+    align-items: center;
+  }
+  .Idea-Sort ul li {
+    width: calc(50% - 5px);
+  }
+  .Idea-Sort ul li a {
+    padding: 10px 5px;
+    justify-content: center;
+    font-size: 3.27102803vw;
+    -webkit-justify-content: center;
+  }
+  .Idea-Sort ul li a span {
+    font-size: 2.803738vw;
+  }
+}
+/********************** (SP 640px �ȉ�) ********************* */
+/* ====================================================
+12: COMMON ITEMS AREA
+==================================================== */
+.PD15 {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+@media only screen and (max-width: 1080px) {
+  .PD15 {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+/********************** (PC 1080px �ȉ�) ********************* */

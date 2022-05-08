@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "Idea-page-shopping-guide",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

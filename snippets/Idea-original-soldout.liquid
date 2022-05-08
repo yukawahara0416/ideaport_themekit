@@ -1,0 +1,36 @@
+{% comment %}
+    Renders a list of product's SOLD OUT
+
+    Accepts:
+    - product: {Object} Product Liquid object (optional)
+    - use_variant: {Boolean} Renders selected or first variant price instead of overall product pricing (optional)
+    - show_badges: {Boolean} Renders 'SOLD OUT' tags if the product matches the condition (optional)
+
+    Usage:
+    {% render 'Idea-original-soldout', product: product %}
+{% endcomment %}
+
+<style>
+  .idea--sold > .SoldOut {
+    display: none !important;
+  }
+</style>
+
+{%- liquid
+  if use_variant
+    assign target = product.selected_or_first_available_variant
+  else
+    assign target = product
+  endif
+
+  assign available = target.available | default: false
+-%}
+
+<div class="status
+  {%- if available == true %} idea--sold {% endif -%}
+  {%- if show_badges %} idea--show-badge{% endif -%}">
+
+  {%- if show_badges -%}
+    <div class="SoldOut">{{ 'products.product.sold_out' | t }}</div>
+  {%- endif -%}
+</div>

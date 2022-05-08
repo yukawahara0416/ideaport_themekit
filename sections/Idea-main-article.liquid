@@ -1,0 +1,93 @@
+{{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+
+<!-- ADD CSS -->
+{{ 'Idea-Css-News.css' | asset_url | stylesheet_tag }}
+
+<h2 class="Idea-PageTitle UnderLine">
+  <a href="{{ blogs['news'].url }}">{{ blogs['news'].title }}</a>
+</h2>
+
+<article class="Idea-News-Article">
+  <div class="DateArea">
+    <div class="NewsDate">{{ article.created_at | date: "%Y.%m.%d" }}</div>
+    {%- if blog.tags -%}
+      <div class="NewsCate InLink">
+        {%- for tag in article.tags -%}
+          <a class="{{ tag | escape }}">{{ tag | escape }}</a>
+          <span>&nbsp;</span>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+
+  <div class="mfNews">
+    {%- if article.image -%}
+      <img src="{{ article.image.src | image_url}}" alt="{{ article.title | escape }}">
+    {%- endif -%}
+  </div>
+
+  <div class="EntryBody">
+    {{ article.content }}
+  </div>
+</article>
+
+  <div class="ReadMore">
+    <a href="{{ blogs['news'].url }}" class="button--full-width">{{ blogs['news'].title }} TOP</a>
+  </div>
+</article>
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "articleBody": {{ article.content | strip_html | json }},
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": {{ request.origin | append: page.url | json }}
+    },
+    "headline": {{ article.title | json }},
+    {% if article.excerpt != blank %}
+      "description": {{ article.excerpt | strip_html | json }},
+    {% endif %}
+    {% if article.image %}
+      {% assign image_size = article.image.width | append: 'x' %}
+      "image": [
+        {{ article | img_url: image_size | prepend: "https:" | json }}
+      ],
+    {% endif %}
+    "datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
+    "dateCreated": {{ article.created_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
+    "author": {
+      "@type": "Person",
+      "name": {{ article.author | json }}
+    },
+    "publisher": {
+      "@type": "Organization",
+      {% if settings.share_image %}
+        {% assign image_size = settings.share_image.width | append: 'x' %}
+        "logo": {
+          "@type": "ImageObject",
+          "height": {{ settings.share_image.height | json }},
+          "url": {{ settings.share_image | img_url: image_size | prepend: "https:" | json }},
+          "width": {{ settings.share_image.width | json }}
+        },
+      {% endif %}
+      "name": {{ shop.name | json }}
+    }
+  }
+  </script>
+
+
+{% schema %}
+{
+  "name": "Idea ブログ記事",
+  "tag": "section",
+  "class": "section PageNews",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Idea ブログ記事"
+    }
+  ]
+}
+{% endschema %}

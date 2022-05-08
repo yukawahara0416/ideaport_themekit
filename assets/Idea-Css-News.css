@@ -1,0 +1,307 @@
+/* ====================================================
+1: TOP NEWS AREA
+==================================================== */
+.TopNews {
+  /* //border: 5px solid red; */
+  /* //border-top: 5px solid #373737; */
+  background: #fff;
+  width: 100%;
+  padding: 90px 20px 100px;
+  position: relative;
+}
+.PageNews {
+  padding: 70px 20px 100px;
+}
+
+/*=== WayPoint�g�p�� FadeIn ===*/
+.TopNews.WayPoint-FadeIn {
+  opacity: 0;
+}
+.TopNews.WayPoint-FadeIn.Active {
+  animation: CommonFadeIn 1.4s;
+  animation-fill-mode: forwards;
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+@media only screen and (max-width: 1080px) {
+  .TopNews {
+    padding: 80px 15px 90px;
+  }
+  .PageNews {
+    padding: 60px 15px 90px;
+  }
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+/********************** (SP 640px �ȉ�) ********************* */
+@media only screen and (max-width: 640px) {
+  .TopNews {
+    padding: 60px 15px 60px;
+  }
+}
+/********************** (SP 640px �ȉ�) ********************* */
+/* ====================================================
+2: NEWS ENTRIES AREA (COMMON)
+==================================================== */
+#NewsEntries {
+  margin: 0 auto 80px;
+  max-width: 1120px;
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+@media only screen and (max-width: 1080px) {
+  #NewsEntries {
+    margin: 0 auto 60px;
+  }
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+/********************** (SP 640px �ȉ�) ********************* */
+@media only screen and (max-width: 640px) {
+  #NewsEntries {
+    margin: 0 auto 50px;
+  }
+}
+/********************** (SP 640px �ȉ�) ********************* */
+/*----------------------------------------------
+2-1: ARTICLE
+---------------------------------------------- */
+#NewsEntries article {
+  position: relative;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  position: relative;
+  border-bottom: 1px solid #e8e8e8;
+}
+#NewsEntries article:first-of-type {
+  border-top: 1px solid #e8e8e8;
+}
+/*==== a �v�f�S��  === */
+#NewsEntries article a.HoverBox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: block;
+}
+#NewsEntries article .InLink a {
+  position: relative; /*�u�ʃ����N�v�͕��ʂɔz�u���邽�� */
+  z-index: 1; /* �����N�v�f�̏d�Ȃ菇�����ɂ��邽�� */
+}
+/*==== Top Animation  === */
+#NewsEntries.Animation article {
+  opacity: 0;
+}
+#NewsEntries.Animation article.Active {
+  animation: CommonFadeIn 1.4s;
+  animation-fill-mode: forwards;
+}
+/*==== Hover  === */
+.is-PC #NewsEntries article {
+  transition: background-color 0.3s linear;
+}
+.is-PC #NewsEntries article:hover {
+  background: var(--Idea-BoxHover);
+}
+/*==== Date  === */
+#NewsEntries .NewsDate {
+  letter-spacing: 0.05em;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--Idea-Poppins);
+  color: #000;
+  width: 120px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+/*==== Category === */
+#NewsEntries .NewsCate {
+  letter-spacing: 0.1em;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--Idea-Poppins);
+  width: 150px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+#NewsEntries .NewsCate a {
+  color: #878787;
+}
+#NewsEntries .NewsCate a:hover {
+  color: var(--Idea-hover-color);
+}
+/*==== H3 === */
+#NewsEntries h3 {
+  font-size: 16px;
+  line-height: 1.8;
+  padding: 30px 30px;
+  color: #000;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+}
+/********************** (PC 1200px �ȉ�) ********************* */
+@media only screen and (max-width: 1200px) {
+  #NewsEntries h3 {
+    padding: 25px 25px;
+    font-size: 14px;
+  }
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+/********************** (SP 764px �ȉ�) ********************* */
+@media only screen and (max-width: 764px) {
+  #NewsEntries article {
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+  }
+  #NewsEntries .NewsDate,
+  #NewsEntries .NewsCate {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-size: 12px;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+  }
+  #NewsEntries .NewsDate {
+    padding-left: 15px;
+  }
+  #NewsEntries h3 {
+    width: 100%;
+    text-align: left;
+    display: block;
+    margin: 0;
+    padding: 0 15px 20px;
+  }
+}
+/********************** (SP 764px �ȉ�) ********************* */
+/*----------------------------------------------
+2-2: ARTICLE (NEWS)
+---------------------------------------------- */
+/*=== �㏑�� === */
+main {
+  padding-bottom: 0;
+}
+/*=== �㏑�� === */
+.BreadCramb-Area {
+  margin-bottom: 0;
+}
+/*=== Article Area === */
+.Idea-News-Article {
+  max-width: 1120px;
+  margin: 0 auto 0px;
+}
+/*=== Img === */
+.Idea-News-Article img {
+  max-width: 100%;
+}
+/*=== H3 === */
+.Idea-News-Article h3 {
+  text-align: center;
+  font-size: 26px;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+  margin: 0 auto 35px;
+}
+/*=== Date Area === */
+.DateArea {
+  margin: 0 auto 50px;
+  display: flex;
+  -webkit-display: flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+}
+/*=== News Date === */
+.DateArea .NewsDate {
+  letter-spacing: 0.05em;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--Idea-Poppins);
+  color: #000;
+  margin: 0 25px;
+}
+/*=== News Cate === */
+.DateArea .NewsCate {
+  letter-spacing: 0.1em;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--Idea-Poppins);
+  margin: 0 25px;
+}
+.DateArea .NewsCate a {
+  color: #878787;
+}
+.DateArea .NewsCate a:hover {
+  color: var(--Idea-hover-color);
+}
+/*=== Meta Filed Img === */
+.mfNews {
+  margin: 0 auto 70px;
+}
+/*=== Entry Body === */
+.Idea-News-Article .EntryBody {
+  max-width: 860px;
+  margin: 0 auto 90px;
+  font-size: 16px;
+}
+/*=== p === */
+.Idea-News-Article .EntryBody p {
+  margin-bottom: 35px;
+  line-height: 2;
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+@media only screen and (max-width: 1080px) {
+  /* .Idea-News-Article {
+  } */
+  .Idea-News-Article h3 {
+    font-size: 24px;
+  }
+  .DateArea {
+    margin: 0 auto 40px;
+  }
+  .mfNews {
+    margin: 0 auto 50px;
+  }
+}
+/********************** (/PC 1080px �ȉ�) ********************* */
+
+/********************** (SP 764px �ȉ�) ********************* */
+@media only screen and (max-width: 764px) {
+  .DateArea .NewsDate,
+  .DateArea .NewsCate {
+    font-size: 12px;
+  }
+
+  /* .Idea-News-Article .EntryBody {
+  } */
+  .Idea-News-Article .EntryBody {
+    font-size: 14px;
+    margin-bottom: 60px;
+  }
+}
+/********************** (SP 764px �ȉ�) ********************* */
+/********************** (SP 640px �ȉ�) ********************* */
+@media only screen and (max-width: 640px) {
+  .Idea-News-Article h3 {
+    font-size: 18px;
+    margin-bottom: 35px;
+  }
+  .DateArea {
+    margin: 0 auto 30px;
+  }
+  .mfNews {
+    margin: 0 auto 40px;
+  }
+}
+/********************** (SP 640px �ȉ�) ********************* */

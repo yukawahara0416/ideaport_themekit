@@ -1,0 +1,272 @@
+<link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-loading-overlay.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<noscript>{{ 'component-search.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-cart-notification.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-cart-items.css' | asset_url | stylesheet_tag }}</noscript>
+
+<script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
+
+<!-- ADD CSS -->
+<link rel="stylesheet" href="{{ 'Idea-Css-Common.css' | asset_url }}" media="print" onload="this.media='all'" />
+<link rel="stylesheet" href="{{ 'Idea-Css-Header.css' | asset_url }}" media="print" onload="this.media='all'" />
+<!-- ADD JS -->
+{{ '//cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js' | script_tag }}
+{{ '//cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js' | script_tag }}
+{{ '//cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js' | script_tag }}
+{{ '//cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.0/plugins/unveilhooks/ls.unveilhooks.min.js' | script_tag }}
+{{ '//cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/plugins/aspectratio/ls.aspectratio.min.js' | script_tag }}
+<script src="{{ 'Idea-Js-Common.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'Idea-Js-Header.js' | asset_url }}" defer="defer"></script>
+
+<!-- Sticky Header -->
+<sticky-header class="header-wrapper">
+  <header class="header">
+    <!-- Hamburger Menu -->
+    <div id="Hamburger">
+      <div class="OpenBtn HeaderToggle"><span></span><span></span><span></span></div>
+    </div>
+    <!-- Title -->
+    <h1 class="header__heading">
+      <a href="{{ routes.root_url }}">{{ "Idea-Img-HLogo.png" | asset_url | img_tag: shop.name }}</a>
+    </h1>
+
+    <!-- Icon Area (Wrapper) -->
+    <div class="header__icons">
+      <details-modal class="header__search">
+        <details>
+          <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
+            {{ 'Idea-Img-Search-Icon.png' | asset_url | img_tag: 'Search' }}
+          </summary>
+          <!-- Modal -->
+          <div class="search-modal modal__content" role="dialog" aria-modal="true" aria-label="{{ 'general.search.search' | t }}">
+            <div class="modal-overlay"></div>
+            <!-- Form Area -->
+            <div class="search-modal__content search-modal__content-bottom" tabindex="-1">
+              <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' | t }}">
+                <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
+                  <div class="field">
+                    <input class="search__input field__input"
+                      id="Search-In-Modal"
+                      type="search"
+                      name="q"
+                      value=""
+                      placeholder="{{ 'general.search.search' | t }}"
+                      role="combobox"
+                      aria-expanded="false"
+                      aria-owns="predictive-search-results-list"
+                      aria-controls="predictive-search-results-list"
+                      aria-haspopup="listbox"
+                      aria-autocomplete="list"
+                      autocorrect="off"
+                      autocomplete="off"
+                      autocapitalize="off"
+                      spellcheck="false"
+                    >
+                    <label class="field__label" for="Search-In-Modal">{{ 'general.search.search' | t }}</label>
+                    <input type="hidden" name="options[prefix]" value="last">
+                    <button class="search__button field__button" aria-label="検索">
+                      <svg class="icon icon-search" aria-hidden="true" focusable="false" role="presentation">
+                        <use href="#icon-search">
+                      </svg>
+                    </button>
+                  </div>
+
+                  <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
+                </form>
+              </predictive-search>
+
+              <!-- Close -->
+              <button type="button" class="search-modal__close-button modal__close-button link link--text focus-inset" aria-label="{{ 'accessibility.close' | t }}">
+                <img src="{{ 'Idea-Img-ModalClose.png' | asset_url }}" alt="{{ 'accessibility.close' | t }}">
+              </button>
+            </div>
+          </div>
+        </details>
+      </details-modal>
+
+      {%- if shop.customer_accounts_enabled -%}
+      <!-- Log In -->
+        <div class="LoginPC Poppins">
+          {% if customer %}
+            <a href="{{ routes.account_url }}">My Page</a>
+            <a href="{{ routes.account_logout_url }}">Log Out</a>
+          {% else %}
+            <a href="{{ routes.account_login_url }}">Log In</a>
+          {% endif %}
+        </div>
+      {%- endif -%}
+
+      <!-- Cart Icon -->
+      <div class="CartiIconArea Poppins">
+        <a href="{{ routes.cart_url }}" id="cart-icon-bubble">
+
+          {%- liquid
+            if cart == empty
+              render 'Idea-icon-cart-empty'
+            else
+              render 'Idea-icon-cart'
+            endif
+          -%}
+
+          <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+
+          {%- if cart != empty -%}
+            <div class="cart-count-bubble">
+              <span aria-hidden="true">{{ cart.item_count }}</span>
+            </div>
+          {%- endif -%}
+
+        </a>
+      </div>
+
+    </div>
+  </header>
+</sticky-header>
+
+{%- render 'Idea-cart-notification', color_scheme: section.settings.color_scheme -%}
+
+{% javascript %}
+  class StickyHeader extends HTMLElement {
+    constructor() {
+      super();
+    }
+
+    connectedCallback() {
+      this.header = document.getElementById('shopify-section-header');
+      this.headerBounds = {};
+      this.currentScrollTop = 0;
+      this.preventReveal = false;
+      this.predictiveSearch = this.querySelector('predictive-search');
+
+      this.onScrollHandler = this.onScroll.bind(this);
+      this.hideHeaderOnScrollUp = () => this.preventReveal = true;
+
+      this.addEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp);
+      window.addEventListener('scroll', this.onScrollHandler, false);
+
+      this.createObserver();
+    }
+
+    disconnectedCallback() {
+      this.removeEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp);
+      window.removeEventListener('scroll', this.onScrollHandler);
+    }
+
+    createObserver() {
+      let observer = new IntersectionObserver((entries, observer) => {
+        this.headerBounds = entries[0].intersectionRect;
+        observer.disconnect();
+      });
+
+      observer.observe(this.header);
+    }
+
+    onScroll() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (this.predictiveSearch && this.predictiveSearch.isOpen) return;
+
+      if (scrollTop > this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
+        requestAnimationFrame(this.hide.bind(this));
+      } else if (scrollTop < this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
+        if (!this.preventReveal) {
+          requestAnimationFrame(this.reveal.bind(this));
+        } else {
+          window.clearTimeout(this.isScrolling);
+
+          this.isScrolling = setTimeout(() => {
+            this.preventReveal = false;
+          }, 66);
+
+          requestAnimationFrame(this.hide.bind(this));
+        }
+      } else if (scrollTop <= this.headerBounds.top) {
+        requestAnimationFrame(this.reset.bind(this));
+      }
+
+
+      this.currentScrollTop = scrollTop;
+    }
+
+    hide() {
+      this.header.classList.add('shopify-section-header-hidden', 'shopify-section-header-sticky');
+      this.closeMenuDisclosure();
+      this.closeSearchModal();
+    }
+
+    reveal() {
+      this.header.classList.add('shopify-section-header-sticky', 'animate');
+      this.header.classList.remove('shopify-section-header-hidden');
+    }
+
+    reset() {
+      this.header.classList.remove('shopify-section-header-hidden', 'shopify-section-header-sticky', 'animate');
+    }
+
+    closeMenuDisclosure() {
+      this.disclosures = this.disclosures || this.header.querySelectorAll('details-disclosure');
+      this.disclosures.forEach(disclosure => disclosure.close());
+    }
+
+    closeSearchModal() {
+      this.searchModal = this.searchModal || this.header.querySelector('details-modal');
+      this.searchModal.close(false);
+    }
+  }
+
+  customElements.define('sticky-header', StickyHeader);
+{% endjavascript %}
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": {{ shop.name | json }},
+    {% if section.settings.logo %}
+      {% assign image_size = section.settings.logo.width | append: 'x' %}
+      "logo": {{ section.settings.logo | img_url: image_size | prepend: "https:" | json }},
+    {% endif %}
+    "sameAs": [
+      {{ settings.social_twitter_link | json }},
+      {{ settings.social_facebook_link | json }},
+      {{ settings.social_pinterest_link | json }},
+      {{ settings.social_instagram_link | json }},
+      {{ settings.social_tiktok_link | json }},
+      {{ settings.social_tumblr_link | json }},
+      {{ settings.social_snapchat_link | json }},
+      {{ settings.social_youtube_link | json }},
+      {{ settings.social_vimeo_link | json }}
+    ],
+    "url": {{ request.origin | append: page.url | json }}
+  }
+</script>
+
+{%- if request.page_type == 'index' -%}
+  {% assign potential_action_target = request.origin | append: routes.search_url | append: "?q={search_term_string}" %}
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": {{ shop.name | json }},
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {{ potential_action_target | json }},
+        "query-input": "required name=search_term_string"
+      },
+      "url": {{ request.origin | append: page.url | json }}
+    }
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.header.name",
+  "class": "section-header"
+}
+{% endschema %}

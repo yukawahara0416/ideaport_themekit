@@ -1,0 +1,285 @@
+/* ====================================================
+1: TOP COLLECTION AREA
+==================================================== */
+#TopCollection,
+.TopCollection {
+  /* //border: 5px solid red; */
+  /* //border-top: 5px solid #373737; */
+  background: #fff;
+  width: 100%;
+  padding: 90px 20px 100px;
+  position: relative;
+  background: var(--LightGrayBG);
+}
+/*=== WayPoint�g�p�� FadeIn ===*/
+#TopCollection.WayPoint-FadeIn,
+.TopCollection.WayPoint-FadeIn {
+  opacity: 0;
+}
+#TopCollection.WayPoint-FadeIn.Active,
+.TopCollection.WayPoint-FadeIn.Active {
+  animation: CommonFadeIn 1.4s;
+  animation-fill-mode: forwards;
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+@media only screen and (max-width: 1080px) {
+  #TopCollection,
+  .TopCollection {
+    padding: 80px 15px 90px;
+  }
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+/********************** (SP 640px �ȉ�) ********************* */
+@media only screen and (max-width: 640px) {
+  #TopCollection,
+  .TopCollection {
+    padding: 45px 15px 55px;
+  }
+}
+/********************** (SP 640px �ȉ�) ********************* */
+/* ====================================================
+2: List (Grid)
+==================================================== */
+#TopCollectionBanners-Wrapper,
+.TopCollectionBanners-Wrapper {
+  max-width: 1600px;
+  margin: 0 auto;
+  /* //border: 1px solid red; */
+  padding: 0 0px;
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+@media only screen and (max-width: 1080px) {
+  #TopCollectionBanners-Wrapper,
+  .TopCollectionBanners-Wrapper {
+    padding: 0px;
+  }
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+/*----------------------------------------------
+2-1: GRID ITEM ROOT (�㏑���ݒ�)
+---------------------------------------------- */
+:root {
+  --grid-desktop-vertical-spacing: 20px;
+  --grid-desktop-horizontal-spacing: 30px;
+}
+/********************** (PC 1260px �ȉ�) ********************* */
+@media only screen and (max-width: 1260px) {
+  :root {
+    --grid-desktop-vertical-spacing: 20px;
+    --grid-desktop-horizontal-spacing: 20px;
+  }
+}
+/********************** (PC 1260px �ȉ�) ********************* */
+/********************** (TB 750px �ȉ�) ********************* */
+@media only screen and (max-width: 750px) {
+  :root {
+    --grid-desktop-vertical-spacing: 20px;
+    --grid-desktop-horizontal-spacing: 20px;
+    --grid-mobile-horizontal-spacing: 15px; /*SP */
+    --grid-mobile-vertical-spacing: 15px;
+  }
+}
+/********************** (TB 750px �ȉ�) ********************* */
+#TopCollection .grid--3-col-desktop,
+.TopCollection .grid--3-col-desktop {
+  /* //border: 1px solid green; */
+  margin: 0;
+}
+/*----------------------------------------------
+2-2: GRID ITEM (�㏑���ݒ�)
+---------------------------------------------- */
+#TopCollection .grid__item,
+.TopCollection .grid__item {
+  /* //background: #FFF; */
+  position: relative;
+  background: var(--LightGrayBG);
+}
+/*==== a �v�f�S��  === */
+#TopCollection .grid__item a,
+.TopCollection .grid__item a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: block;
+}
+/*=== Img Area ===*/
+.BrandImgArea {
+  width: 100%;
+  margin-bottom: 15px;
+  position: relative;
+}
+/********************** (PC 1460px �ȉ�) ********************* */
+@media only screen and (max-width: 1500px) {
+  .BrandImgArea {
+    margin-bottom: 15px;
+  }
+}
+/********************** (PC 1460px �ȉ�) ********************* */
+/*=== Figure ===*/
+#TopCollection figure,
+.TopCollection figure {
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+/*=== PC Hover ===*/
+.is-PC #TopCollection figure:after,
+.is-PC .TopCollection figure:after {
+  content: "";
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  opacity: 0;
+  transition: all 0.3s linear;
+}
+.is-PC #TopCollection .grid__item:hover figure:after,
+.is-PC .TopCollection .grid__item:hover figure:after {
+  opacity: 1;
+}
+.is-PC #TopCollection .grid__item figure img,
+.is-PC .TopCollection .grid__item figure img {
+  transition: all 0.3s linear;
+}
+.is-PC #TopCollection .grid__item:hover figure img,
+.is-PC .TopCollection .grid__item:hover figure img {
+  opacity: 1;
+  transform: scale(1.02, 1.02);
+}
+
+/*=== Img ===*/
+#TopCollection figure img,
+.TopCollection figure img {
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  #TopCollection figure,
+  .TopCollection figure {
+    display: block;
+  }
+  #TopCollection figure:before,
+  .TopCollection figure:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
+  #TopCollection figure img,
+  .TopCollection figure img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    object-fit: cover;
+  }
+}
+/********************** (/TB 768px �ȉ�) ********************* */
+/*=== Logo ===*/
+#TopCollection .BrandLogo,
+.TopCollection .BrandLogo {
+  width: 100px;
+  height: 100px;
+  bottom: 15px;
+  left: 15px;
+  position: absolute;
+}
+#TopCollection .BrandLogo img,
+.TopCollection .BrandLogo img {
+  width: 100%;
+  height: auto;
+}
+/********************** (PC 150px �ȉ�) ********************* */
+@media only screen and (max-width: 1500px) {
+  #TopCollection .BrandLogo,
+  .TopCollection .BrandLogo {
+    width: 75px;
+    height: 75px;
+  }
+}
+/********************** (PC 1460px �ȉ�) ********************* */
+/********************** (PC 1160px �ȉ�) ********************* */
+@media only screen and (max-width: 1160px) {
+  #TopCollection .BrandLogo,
+  .TopCollection .BrandLogo {
+    bottom: calc(50% - 75px / 2);
+    left: calc(50% - 75px / 2);
+  }
+}
+/********************** (PC 1160px �ȉ�) ********************* */
+/********************** (TB 768px �ȉ�) ********************* */
+@media only screen and (max-width: 768px) {
+  #TopCollection .BrandLogo,
+  .TopCollection .BrandLogo {
+    bottom: calc(50% - 14.01869vw / 2);
+    left: calc(50% - 14.01869vw / 2);
+    width: 14.01869vw;
+    height: 14.01869vw;
+  }
+}
+/********************** (/TB 768px �ȉ�) ********************* */
+/*=== H3 ===*/
+#TopCollection h3,
+.TopCollection h3 {
+  display: inline-block;
+  padding: 0 15px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  margin: 0;
+  letter-spacing: 0.06em;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+}
+#TopCollection h3 .BrandGenre,
+.TopCollection h3 .BrandGenre {
+  display: block;
+  font-size: 12px;
+  font-weight: 200;
+  padding-top: 15px;
+  letter-spacing: 0;
+}
+/********************** (PC 1460px �ȉ�) ********************* */
+@media only screen and (max-width: 1500px) {
+  #TopCollection h3,
+  .TopCollection h3 {
+    font-size: 16px;
+  }
+  #TopCollection h3 .BrandGenre,
+  .TopCollection h3 .BrandGenre {
+    padding-top: 10px;
+  }
+}
+/********************** (PC 1460px �ȉ�) ********************* */
+/********************** (TB 1080px �ȉ�) ********************* */
+@media only screen and (max-width: 1080px) {
+  #TopCollection h3,
+  .TopCollection h3 {
+    font-size: 14px;
+  }
+  #TopCollection h3 .BrandGenre,
+  .TopCollection h3 .BrandGenre {
+    font-size: 10px;
+  }
+}
+/********************** (TB 1080px �ȉ�) ********************* */
+/********************** (SP 768px �ȉ�) ********************* */
+@media only screen and (max-width: 768px) {
+  #TopCollection h3,
+  .TopCollection h3 {
+    display: inline-block;
+    padding: 0 10px;
+    margin-bottom: 5px;
+  }
+  #TopCollection h3 .BrandGenre,
+  .TopCollection h3 .BrandGenre {
+    padding-top: 0px;
+    padding-left: 15px;
+    display: inline-block;
+  }
+}
+/********************** (SP 768px �ȉ�) ********************* */

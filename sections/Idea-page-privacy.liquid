@@ -1,0 +1,23 @@
+<!-- ADD CSS -->
+{{ 'Idea-Css-UnderPage.css' | asset_url | stylesheet_tag }}
+
+<h2 class="Idea-PageTitle UnderLine">{{ page.title | escape }}</h2>
+
+<!-- Privacy Area -->
+<div class="Idea-Privacy-Area">
+  {{ page.content }}
+</div>
+
+{% schema %}
+{
+  "name": "Idea PRIVACY POLICY",
+  "tag": "section",
+  "class": "section UnderPage",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Idea PRIVACY POLICY"
+    }
+  ]
+}
+{% endschema %}

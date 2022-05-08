@@ -1,0 +1,15 @@
+<!-- ADD CSS -->
+{{ 'Idea-Css-UnderPage.css' | asset_url | stylesheet_tag }}
+
+<div class="Idea-Sort">
+  <div class="Idea-Error">Not Found.</div>
+</div>
+
+<div class="Idea-Error-Text">
+  <p>申し訳ございません。<br>
+  お探しのページは一時的にアクセスできない状況にあるか、もしくは移動、削除され見つけることが出来ません。</p>
+
+  <a href="{{ routes.root_url }}" class="button">
+    {{ 'general.continue_shopping' | t }}
+  </a>
+</div>

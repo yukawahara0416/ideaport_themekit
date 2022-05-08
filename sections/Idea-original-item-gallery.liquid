@@ -1,0 +1,46 @@
+{{ '//unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js' | script_tag }}
+{{ '//unpkg.com/masonry-layout@4/dist/masonry.pkgd.js' | script_tag }}
+
+<!-- Idea Item Gallery -->
+{%- for image in product.images -%}
+  {%- if image.alt == 'GALLERY' -%}
+  <div class="Idea-Product-Gallery-Item">
+    <picture>
+      <source media="(min-width: 640px)" data-aspectratio="1" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAGAAACH5BAEKAP8ALAAAAAABAAEAAAgEAP8FBAA7" srcset="{{ image | img_url: '2048x2048' }}" />
+      <!-- SP 640px以上なら表示 -->
+      <img class="lazyload" data-aspectratio="1" src="data:image/gif;base64,R0lGODlhAQABAGAAACH5BAEKAP8ALAAAAAABAAEAAAgEAP8FBAA7" srcset="{{ image | img_url: '600x600' }}" alt="{{ image.alt }}" />
+      <!-- それ以外で表示 (SP) -->
+    </picture>
+    <div class="HoverIcon">
+      {{ 'Idea-Img-HoverIcon.png' | asset_url | img_tag: 'hover-icon' }}
+    </div>
+    <a href="{{ image | img_url: '2048x2048' }}" data-fancybox="Main-Gallery-2" data-caption=""></a>
+  </div>
+  {%- endif -%}
+{%- endfor -%}
+
+<script>
+  var $grid = jQuery('.Idea-Product-Gallery-Area').imagesLoaded(function(){
+  $grid.css('opacity', '1');
+  $grid.masonry({
+  // options
+    itemSelector: '.Idea-Product-Gallery-Item',
+    columnWidth: '.Idea-Product-Gallery-Item',
+    //fitWidth: true,
+    percentPosition: true
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Idea アイテムギャラリー",
+  "tag": "section",
+  "class": "Idea-Product-Gallery-Area section",
+  "presets": [
+    {
+      "name": "Idea アイテムギャラリー"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,542 @@
+/* ====================================================
+1: UNDER PAGE AREA
+==================================================== */
+.UnderPage {
+  padding: 70px 0px 100px;
+  /* //border: 1px solid red; */
+}
+.BreadCramb-Area {
+  margin-bottom: 0;
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+@media only screen and (max-width: 1080px) {
+  .UnderPage {
+    padding: 60px 0px 90px;
+  }
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+/********************** (SP 640px �ȉ�) ********************* */
+@media only screen and (max-width: 640px) {
+  .UnderPage {
+    padding: 60px 0px 60px;
+  }
+}
+/********************** (SP 640px �ȉ�) ********************* */
+
+/* ====================================================
+2: COMMON GREY AREA
+==================================================== */
+.CommonGreyArea {
+  background: #f9f9f9;
+  padding: 40px 0px 30px;
+  margin: 0 auto 70px;
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+@media only screen and (max-width: 1080px) {
+  .CommonGreyArea {
+    padding: 20px 0px 10px;
+    margin-bottom: 50px;
+  }
+  .CommonGreyArea.ShoppingNav {
+    padding: 20px 0px 0px;
+  }
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+/********************** (SP 640px �ȉ�) ********************* */
+@media only screen and (max-width: 640px) {
+  .CommonGreyArea {
+    margin-bottom: 30px;
+  }
+}
+/********************** (SP 640px �ȉ�) ********************* */
+
+/* ====================================================
+3: SHOPPING GUIDE
+==================================================== */
+/*=== Sort Nav (Same with Collection) === */
+.Idea-Sort {
+  padding-left: 0;
+  padding-right: 0;
+  margin-bottom: 40px;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+}
+.Idea-Sort:first-of-type ul li a {
+  font-weight: 400;
+}
+.Idea-Sort:last-of-type {
+  margin-bottom: 10px;
+}
+/*=== H3 === */
+h3.ShoppingGuide {
+  font-size: 22px;
+  padding-bottom: 15px;
+  padding-top: 0;
+  position: relative;
+  text-align: center;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+}
+h3.ShoppingGuide:after {
+  content: "";
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  margin: 0 auto;
+  width: 48px;
+  height: 1px;
+  background: #000;
+}
+h3.ShoppingGuide.mb30 {
+  margin-bottom: 0px;
+}
+h3.ShoppingGuide.mb50 {
+  margin-bottom: 50px;
+}
+/*=== H4. GuideTitle === */
+.GuideTitle {
+  font-size: 20px;
+  margin: 0 auto 10px;
+  text-align: center;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+}
+/*=== Answer Box === */
+.AnswerBox {
+  max-width: 840px;
+  margin: 0 auto 60px;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+}
+.AnswerBox a {
+  text-decoration: underline;
+  color: #000;
+}
+.Accodion-Toggle .accordion__title {
+  font-weight: 400;
+  font-size: 16px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  max-width: none;
+  padding-right: 20px;
+}
+.Accodion-Toggle .accordion__title .Qmark {
+  margin-right: 10px;
+  padding-top: 3px;
+  /* //width: 40px!important; */
+}
+.Accodion-Toggle .accordion__title .Qmark img {
+  width: 14px;
+}
+
+.Accodion-Open {
+  font-size: 16px;
+  padding: 40px 20px;
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+@media only screen and (max-width: 1080px) {
+  h3.ShoppingGuide {
+    font-size: 18px;
+    padding-bottom: 15px;
+  }
+  h3.ShoppingGuide.mb50 {
+    margin-bottom: 30px;
+  }
+  .Idea-Sort {
+    margin-bottom: 30px;
+  }
+  .AnswerBox {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .Accodion-Toggle .accordion__title {
+    font-size: 14px;
+  }
+  .Accodion-Open {
+    font-size: 14px;
+    padding: 20px 10px;
+  }
+}
+/********************** (SP 640px �ȉ�) ********************* */
+@media only screen and (max-width: 640px) {
+  .Idea-Sort {
+    margin-bottom: 0px;
+    padding-top: 10px;
+  }
+
+  h3.ShoppingGuide {
+    font-size: 14px;
+    padding-bottom: 10px;
+  }
+  h3.ShoppingGuide:after {
+    width: 30px;
+  }
+  .GuideTitle {
+    font-size: 14px;
+  }
+  .AnswerBox {
+    margin-bottom: 30px;
+  }
+}
+/********************** (SP 640px �ȉ�) ********************* */
+
+/* ====================================================
+4: CONTACT
+==================================================== */
+.Idea-Contact-Caution {
+  max-width: 568px;
+  margin: 0 auto;
+  font-size: 14px;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+}
+.Idea-Contact-Caution ul {
+  padding: 0;
+  margin: 0 0 15px;
+}
+.Idea-Contact-Caution ul li {
+  padding-left: 1em;
+  text-indent: -1em;
+}
+.Must {
+  color: #990000;
+  font-weight: 700;
+}
+.error {
+  color: #990000;
+  font-weight: 700;
+  padding-left: 1em;
+  font-size: 14px;
+}
+
+/********************** (PC 1080px �ȉ�) ********************* */
+@media only screen and (max-width: 1080px) {
+  .Idea-Contact-Caution {
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 12px;
+  }
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+
+.FormArea {
+  max-width: 568px;
+  margin: 0 auto;
+  font-size: 14px;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+@media only screen and (max-width: 1080px) {
+  .FormArea {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+.field {
+  display: block;
+  box-shadow: none;
+  border: none;
+  margin-bottom: 45px;
+}
+/*=== �㏑�� === */
+.field:before {
+  display: none;
+}
+.field:after {
+  display: none;
+}
+input.field__input {
+  /* //border: 1px solid red; */
+  position: static;
+  /* //background: #EFEFEF; */
+  padding: 0;
+}
+.field__input:focus-visible,
+.select__select:focus-visible {
+  box-shadow: none;
+  outline: 0;
+  border-radius: var(--inputs-radius);
+}
+.field__label {
+  position: static;
+  font-size: 14px;
+  padding-bottom: 10px;
+  display: block;
+}
+
+.field__input[type="text"],
+.field__input[type="email"],
+.field__input[type="tel"] {
+  border: none;
+  padding: 15px;
+  border: 1px solid #efefef;
+  font-size: 14px;
+  color: #000;
+  position: relative;
+  -webkit-transition: background 0.3s linear;
+  transition: background 0.3s linear;
+}
+
+input[type="checkbox"] {
+  display: inline-block;
+  width: auto;
+  margin-right: 0.5rem;
+  display: none;
+}
+.Idea_label {
+  position: relative; /* �{�b�N�X�̈ʒu���w�肷�� */
+  padding: 0 0 0 42px; /* �{�b�N�X�����̗]�����w�肷�� */
+  display: inline-block;
+}
+.Idea_label:hover:after {
+  border-color: #0171bd; /* �{�b�N�X�̋��E���������Ŏw�肷�� */
+}
+.Idea_label:after,
+.Idea_label:before {
+  position: absolute; /* �{�b�N�X�̈ʒu���w�肷�� */
+  content: ""; /* �{�b�N�X�̃R���e���c */
+  display: block; /* �u���b�N���x���v�f������ */
+  top: 50%; /* �㕔�����z�u�̊�ʒu�����߂� */
+  transition: all 0.3s linear;
+}
+.Idea_label:after {
+  left: 15px; /* �������z�u�̊�ʒu�����߂� */
+  margin-top: -8px; /* �`�F�b�N�g�̈ʒu */
+  width: 15px; /* �{�b�N�X�̉������w�肷�� */
+  height: 15px; /* �{�b�N�X�̍������w�肷�� */
+  border: 1px solid #ccc; /* �{�b�N�X�̋��E���������Ŏw�肷�� */
+  border-radius: 0px; /* �{�b�N�X�̊p�ۂ��w�肷�� */
+}
+.Idea_label:before {
+  left: 21px; /* �������z�u�̊�ʒu�����߂� */
+  margin-top: -7px; /* �`�F�b�N�}�[�N�̈ʒu */
+  width: 5px; /* �{�b�N�X�̉������w�肷�� */
+  height: 9px; /* �{�b�N�X�̍������w�肷�� */
+  border-right: 1px solid #0171bd; /* ���E���i�E�j�̃X�^�C�����w�肷�� */
+  border-bottom: 1px solid #0171bd; /* ���E���i���j�̃X�^�C�����w�肷�� */
+  transform: rotate(45deg); /* �v�f�����]������ */
+  opacity: 0; /* �v�f�𓧉ߎw�肷�� */
+}
+input[type="checkbox"]:checked + .Idea_label:before {
+  opacity: 1; /* �v�f���\������ */
+}
+/*==== text ==== */
+input[type="text"] {
+  width: 100%;
+}
+.field__input[type="text"]:focus,
+.field__input[type="email"]:focus,
+.field__input[type="tel"]:focus,
+textarea.field__input:focus {
+  color: rgba(0, 0, 0, 1);
+  font-weight: 500;
+  background: #efefef;
+  outline: 0;
+}
+textarea.field__input {
+  resize: vertical;
+  width: 100%;
+  min-height: 300px;
+  /* //max-height: 300px; */
+  border: none;
+  padding: 15px;
+  border: 1px solid #efefef;
+  font-size: 14px;
+  font-weight: 400;
+  position: relative;
+}
+.field__input::placeholder {
+  opacity: 1;
+  color: rgba(0, 0, 0, 0.3);
+  font-weight: 400;
+  font-size: 14px;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+}
+textarea::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 500;
+  font-size: 14px;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+}
+.contact__button {
+  margin: 0 auto;
+  max-width: 260px;
+}
+/* ====================================================
+5: PRIVACY POLICY
+==================================================== */
+.Idea-Privacy-Area {
+  max-width: 868px;
+  margin: 0 auto;
+  padding: 0 15px;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+}
+.Idea-Privacy-Area p {
+  margin-bottom: 35px;
+  line-height: 2;
+  text-align: justify;
+  text-justify: inter-ideograph;
+  font-size: 16px;
+}
+.Idea-Privacy-Area ul {
+  padding: 0;
+  margin: 0 15px;
+  position: relative;
+}
+.Idea-Privacy-Area ul li {
+  padding-left: 1em;
+  text-indent: -1em;
+  line-height: 2;
+  text-align: justify;
+  text-justify: inter-ideograph;
+  font-size: 16px;
+}
+.Idea-Privacy-Area ul.Idea-Ja {
+  padding-bottom: 60px;
+  margin-bottom: 60px;
+}
+.Idea-Privacy-Area ul.Idea-Ja:after {
+  content: "";
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  position: absolute;
+  width: 136px;
+  height: 1px;
+  background: #efefef;
+}
+.Idea-Privacy-Area ul.Idea-En li {
+  text-align: left;
+}
+
+/********************** (PC 1080px �ȉ�) ********************* */
+@media only screen and (max-width: 1080px) {
+  .Idea-Privacy-Area p {
+    font-size: 14px;
+  }
+  .Idea-Privacy-Area ul li {
+    font-size: 14px;
+  }
+  .Idea-Privacy-Area ul.Idea-Ja {
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+  }
+}
+/********************** (PC 1080px �ȉ�) ********************* */
+/********************** (SP 640px �ȉ�) ********************* */
+@media only screen and (max-width: 640px) {
+  .Idea-Privacy-Area p {
+    font-size: 12px;
+    margin-bottom: 30px;
+  }
+  .Idea-Privacy-Area ul li {
+    font-size: 12px;
+  }
+}
+/********************** (SP 640px �ȉ�) ********************* */
+
+/* ====================================================
+6: LAW
+==================================================== */
+table.Idea-Responsive {
+  width: 100%;
+  max-width: 920px;
+  margin: 0px auto 0px;
+  font-size: 14px;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+}
+/*=== th === */
+table.Idea-Responsive th {
+  width: 25%;
+  vertical-align: middle;
+  background: #efefef;
+  font-weight: 300;
+  border-bottom: 2px solid #fff;
+}
+/*=== td === */
+table.Idea-Responsive td {
+  padding: 20px 40px 20px 40px;
+  line-height: 1.6;
+  text-align: left;
+  vertical-align: middle;
+  font-weight: 300;
+  font-size: 14px;
+  border-bottom: 1px solid #efefef;
+  border-top: 1px solid #efefef;
+  border-right: 1px solid #efefef;
+}
+/*=== No Border === */
+table.Idea-Responsive td.NoBorder {
+  border: none;
+}
+table.Idea-Responsive td a {
+  text-decoration: underline;
+  color: #000;
+}
+
+a[href^="tel:"] {
+  pointer-events: none;
+}
+/********************** (SP 767px �ȉ�) *********************/
+@media only screen and (max-width: 767px) {
+  /* table.Idea-Responsive {
+  } */
+  table.Idea-Responsive th,
+  table.Idea-Responsive td {
+    display: block;
+    width: 100%;
+  }
+  table.Idea-Responsive th {
+    padding: 10px;
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 12px;
+  }
+  table.Idea-Responsive th br {
+    display: none;
+  }
+  table.Idea-Responsive td {
+    padding: 0 5px;
+    margin-bottom: 20px;
+    border: none;
+    font-size: 12px;
+  }
+}
+
+/* ====================================================
+9: 404
+==================================================== */
+.Idea-Error {
+  margin: 0px auto 20px;
+  font-size: 26px;
+  text-align: center;
+}
+.Idea-Error-Text {
+  margin: 0px auto 0px;
+  font-size: 16px;
+  text-align: center;
+  padding: 0 20px;
+}
+.Idea-Error-Text p {
+  margin: 0px auto 60px;
+}
+/********************** (SP 640px �ȉ�) ********************* */
+@media only screen and (max-width: 640px) {
+  .Idea-Error {
+    margin: 0px auto 0px;
+    font-size: 20px;
+    text-align: center;
+  }
+  .Idea-Error-Text {
+    margin: 30px auto 0px;
+    font-size: 12px;
+    text-align: center;
+  }
+  .Idea-Error-Text p {
+    text-align: left;
+  }
+  .Idea-Error-Text .button {
+    font-size: 12px;
+  }
+}
+/********************** (SP 640px �ȉ�) ********************* */

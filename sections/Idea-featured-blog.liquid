@@ -1,0 +1,77 @@
+<link rel="stylesheet" href="{{ 'component-slider.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-card.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-article-card.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'section-featured-blog.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<noscript>{{ 'component-slider.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-card.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-article-card.css' | asset_url | stylesheet_tag }}</noscript>
+
+{{ 'section-featured-blog.css' | asset_url | stylesheet_tag }}
+
+<!-- ADD CSS -->
+{{ 'Idea-Css-News.css' | asset_url | stylesheet_tag }}
+
+<!-- News Entries Wrappe -->
+<h2 class="Idea-PageTitle"><a href="{{ blogs['news'].url }}">{{ blogs['news'].title }}</a></h2>
+<div id="NewsEntries" class="{%- if template == 'index'-%}Animation{%- endif -%}">
+  {%- for article in section.settings.blog.articles limit: section.settings.post_limit -%}
+  <article>
+    <div class="NewsDate">{{ article.published_at | time_tag: format: 'date' }}</div>
+    {%- if article.tags -%}
+      <div class="NewsCate InLink">
+        {%- for tag in article.tags -%}
+        <a class="{{ tag | escape }}">{{ tag | escape }}</a>
+        <span>&nbsp;</span>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+    <h3>{{ article.title | escape }}</h3>
+    <a href="{{ article.url }}" class="HoverBox" title="{{ article.title | escape }}"></a>
+  </article>
+  {%- endfor -%}
+</div>
+
+{%- if section.settings.post_limit < section.settings.blog.articles_count -%}
+  <div class="ReadMore">
+    <a href="{{ section.settings.blog.url }}" class="button--full-width">VIEW MORE</a>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Idea トップ ブログ一覧",
+  "tag": "section",
+  "class": "TopNews WayPoint-FadeIn section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Blog posts",
+      "label": "t:sections.featured-blog.settings.heading.label"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "t:sections.featured-blog.settings.blog.label"
+    },
+    {
+      "type": "range",
+      "id": "post_limit",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3,
+      "label": "t:sections.featured-blog.settings.post_limit.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Idea トップ ブログ一覧",
+      "settings": {
+        "blog": "News"
+      }
+    }
+  ]
+}
+{% endschema %}

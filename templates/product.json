@@ -1,0 +1,86 @@
+{
+  "sections": {
+    "16515388494c8d9372": {
+      "type": "Idea-main-product",
+      "blocks": {
+        "0f04e526-4cbd-4bfb-8549-f18e56fea36f": {
+          "type": "title",
+          "settings": {}
+        },
+        "2d6e7fd9-6c46-4433-9fcc-9353e06b44c2": {
+          "type": "price",
+          "settings": {}
+        },
+        "bf8a7657-c233-4540-b97b-fea5cfc0e4e0": {
+          "type": "variant_picker",
+          "settings": {}
+        },
+        "5a461084-949e-4c82-92b5-5d54c061f56f": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "40174dc3-c530-4282-81ab-7e372e74dadf": {
+          "type": "buy_buttons",
+          "settings": {}
+        },
+        "6e68423d-aef8-45bf-8b5a-154aea872582": {
+          "type": "collapsible_tab",
+          "settings": {}
+        },
+        "e77324c1-7507-4ad2-8482-9d4abbdc1614": {
+          "type": "description",
+          "settings": {}
+        },
+        "a35a4644-a960-44c5-bcfb-df13a658f682": {
+          "type": "share",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "0f04e526-4cbd-4bfb-8549-f18e56fea36f",
+        "2d6e7fd9-6c46-4433-9fcc-9353e06b44c2",
+        "bf8a7657-c233-4540-b97b-fea5cfc0e4e0",
+        "5a461084-949e-4c82-92b5-5d54c061f56f",
+        "40174dc3-c530-4282-81ab-7e372e74dadf",
+        "6e68423d-aef8-45bf-8b5a-154aea872582",
+        "e77324c1-7507-4ad2-8482-9d4abbdc1614",
+        "a35a4644-a960-44c5-bcfb-df13a658f682"
+      ],
+      "settings": {}
+    },
+    "1651563902135b3a6e": {
+      "type": "Idea-original-item-gallery",
+      "settings": {}
+    },
+    "1650678024656a99f3": {
+      "type": "Idea-product-recommendations",
+      "settings": {
+        "heading": "RELATED PRODUCTS",
+        "columns_desktop": 4
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "columns_desktop": 4,
+        "color_scheme": "background-1",
+        "image_ratio": "square",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    }
+  },
+  "order": [
+    "16515388494c8d9372",
+    "1651563902135b3a6e",
+    "1650678024656a99f3",
+    "product-recommendations"
+  ]
+}

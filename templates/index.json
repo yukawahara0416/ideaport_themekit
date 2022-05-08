@@ -1,0 +1,116 @@
+{
+  "sections": {
+    "16515625996a8792a4": {
+      "type": "Idea-original-top-slider",
+      "blocks": {
+        "7ce57c90-b400-4fcf-80f6-54263ec61d47": {
+          "type": "image",
+          "settings": {
+            "alt": "IZIPIZI",
+            "button_link": "shopify:\/\/collections\/izipizi",
+            "image-large": "shopify:\/\/shop_images\/SampleBannerSlide-001-3000x1125.jpg",
+            "image-medium": "shopify:\/\/shop_images\/SampleBannerSlide-001-1200x1200.jpg",
+            "logo": "shopify:\/\/shop_images\/Izipizi-Slider-Banner-704x512.jpg"
+          }
+        },
+        "43c915f2-8b1f-4cd6-a0c4-22e38598196d": {
+          "type": "image",
+          "settings": {
+            "alt": "BACSAC",
+            "button_link": "shopify:\/\/collections\/bacsac",
+            "image-large": "shopify:\/\/shop_images\/SampleBannerSlide-002-3000x1125.jpg",
+            "image-medium": "shopify:\/\/shop_images\/SampleSlide-003-1200x1200.jpg",
+            "logo": "shopify:\/\/shop_images\/BACSAC-Slider-Banner-704x512.jpg"
+          }
+        },
+        "89b8b0ac-6a54-45c9-a42b-8ca9a7c85f56": {
+          "type": "image",
+          "settings": {
+            "alt": "ROLSER",
+            "button_link": "shopify:\/\/collections\/rolser",
+            "image-large": "shopify:\/\/shop_images\/SampleBannerSlide-003-3000x1125.jpg",
+            "image-medium": "shopify:\/\/shop_images\/SampleBannerSlide-003-1200x1200.jpg",
+            "logo": "shopify:\/\/shop_images\/Rolser-Slider-Banner-704x512.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "7ce57c90-b400-4fcf-80f6-54263ec61d47",
+        "43c915f2-8b1f-4cd6-a0c4-22e38598196d",
+        "89b8b0ac-6a54-45c9-a42b-8ca9a7c85f56"
+      ],
+      "settings": {}
+    },
+    "1651562619302fd15b": {
+      "type": "Idea-original-pickup-collection",
+      "settings": {
+        "title": "PICK UP",
+        "collection": "pickup",
+        "products_to_show": 4,
+        "columns_desktop": 4
+      }
+    },
+    "165156284164548010": {
+      "type": "Idea-original-brand-collection",
+      "settings": {
+        "title": "BRAND"
+      }
+    },
+    "16515627879139ae21": {
+      "type": "Idea-featured-blog",
+      "settings": {
+        "heading": "NEWS",
+        "blog": "news",
+        "post_limit": 3
+      }
+    },
+    "1651562615b9279f19": {
+      "type": "Idea-original-footer-slider",
+      "blocks": {
+        "0205a0a9-7373-4b8b-a060-b5d32d14f578": {
+          "type": "image",
+          "settings": {
+            "title": "テーブルブラシセット1",
+            "copy": "テーブルの上のパンくずや勉強机のほこりを掃除できるセット。",
+            "button_link": "shopify:\/\/products\/テーブルブラシセット1",
+            "image-large": "shopify:\/\/shop_images\/SampleSlide-001-3000x1125.jpg",
+            "image-medium": "shopify:\/\/shop_images\/SampleSlide-001-1200x1200.jpg"
+          }
+        },
+        "b2a023b1-d7f1-43b0-9136-55fac4169178": {
+          "type": "image",
+          "settings": {
+            "title": "テーブルブラシセット2",
+            "copy": "テーブルの上のパンくずや勉強机のほこりを掃除できるセット。",
+            "button_link": "shopify:\/\/products\/テーブルブラシセット2",
+            "image-large": "shopify:\/\/shop_images\/SampleSlide-002-3000x1125.jpg",
+            "image-medium": "shopify:\/\/shop_images\/SampleSlide-002-1200x1200.jpg"
+          }
+        },
+        "f6dbf8c7-68ef-4457-8d22-ae7f93b63cc4": {
+          "type": "image",
+          "settings": {
+            "title": "テーブルブラシセット3",
+            "copy": "テーブルの上のパンくずや勉強机のほこりを掃除できるセット。",
+            "button_link": "shopify:\/\/products\/テーブルブラシセット3",
+            "image-large": "shopify:\/\/shop_images\/SampleSlide-003-3000x1125_13c42736-9160-4cf7-a1f6-10aa9fbaeefb.jpg",
+            "image-medium": "shopify:\/\/shop_images\/SampleSlide-003-1200x1200_57988303-c462-4056-bd94-95353f1c7379.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "0205a0a9-7373-4b8b-a060-b5d32d14f578",
+        "b2a023b1-d7f1-43b0-9136-55fac4169178",
+        "f6dbf8c7-68ef-4457-8d22-ae7f93b63cc4"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "16515625996a8792a4",
+    "1651562619302fd15b",
+    "165156284164548010",
+    "16515627879139ae21",
+    "1651562615b9279f19"
+  ]
+}

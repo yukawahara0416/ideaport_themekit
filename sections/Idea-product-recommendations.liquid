@@ -1,0 +1,114 @@
+<link rel="stylesheet" href="{{ 'component-card.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'section-product-recommendations.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<noscript>{{ 'component-card.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-price.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'section-product-recommendations.css' | asset_url | stylesheet_tag }}</noscript>
+
+<!-- ADD CSS -->
+{{ 'Idea-Css-CommonItems.css' | asset_url | stylesheet_tag }}
+
+<product-recommendations class="" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=4">
+  {% if recommendations.performed and recommendations.products_count > 0 %}
+  <!-- Common Items Area -->
+    {%- unless section.settings.heading == blank -%}
+    <h2 class="Idea-PageTitle">{{ section.settings.heading | escape }}</h2>
+    {%- endunless -%}
+
+    {% comment %} Idea 商品グリッド {% endcomment %}
+    <div id="ItemGridWrapper">
+      <ul id="product-grid" class="Idea-Items grid product-grid {% if section.settings.columns_desktop == 1 %}grid--full-width{% else %} grid--{{ section.settings.columns_desktop }}-col-desktop{% endif %} grid--2-col grid--3-col-tablet" role="list">
+
+        {% for recommendation in recommendations.products %}
+        <li class="grid__item">
+          <div class="ItemImgArea">
+            <picture>
+              <source media="(min-width: 640px)" data-aspectratio="1" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAGAAACH5BAEKAP8ALAAAAAABAAEAAAgEAP8FBAA7" srcset="{{ recommendation.featured_image | image_url: width: 600 }}" alt="{{ recommendation.featured_media.alt }}" />
+              <!-- SP 640px以上なら表示 -->
+              <img class="lazyload SlideFadeInImg" data-aspectratio="1" src="data:image/gif;base64,R0lGODlhAQABAGAAACH5BAEKAP8ALAAAAAABAAEAAAgEAP8FBAA7" srcset="{{ recommendation.featured_image | image_url: width: 300 }}" alt="{{ recommendation.featured_media.alt }}" />
+              <!-- それ以外で表示 (SP) -->
+            </picture>
+            {% unless recommendation.available %}
+            <div class="SoldOut">{{ 'products.product.sold_out' | t }}</div>
+            {% endunless %}
+          </div>
+          <div class="TextArea">
+            <h3>{{ recommendation.title | escape }}</h3>
+
+            {% render 'Idea-price', product: recommendation %}
+
+          </div>
+          <a href="{{ recommendation.url }}" title="{{ recommendation.title | escape }}"></a>
+        </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  {% endif %}
+</product-recommendations>
+
+{% javascript %}
+  class ProductRecommendations extends HTMLElement {
+    constructor() {
+      super();
+
+      const handleIntersection = (entries, observer) => {
+        if (!entries[0].isIntersecting) return;
+        observer.unobserve(this);
+
+        fetch(this.dataset.url)
+          .then(response => response.text())
+          .then(text => {
+            const html = document.createElement('div');
+            html.innerHTML = text;
+            const recommendations = html.querySelector('product-recommendations');
+
+            if (recommendations && recommendations.innerHTML.trim().length) {
+              this.innerHTML = recommendations.innerHTML;
+            }
+
+            if (html.querySelector('.grid__item')) {
+              this.classList.add('product-recommendations--loaded');
+            }
+          })
+          .catch(e => {
+            console.error(e);
+          });
+      }
+
+      new IntersectionObserver(handleIntersection.bind(this), {rootMargin: '0px 0px 200px 0px'}).observe(this);
+    }
+  }
+
+  customElements.define('product-recommendations', ProductRecommendations);
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Idea おすすめ商品",
+  "tag": "section",
+  "class": "Common-Items-Area section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "RELATED PRODUCTS",
+      "label": "t:sections.product-recommendations.settings.heading.label"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 4,
+      "label": "t:sections.product-recommendations.settings.columns_desktop.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Idea おすすめ商品"
+    }
+  ]
+}
+{% endschema %}
